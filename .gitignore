@@ -1,0 +1,5 @@
+Sunday 2020-__pychache__
+*.pyc
+obj
+bin
+.DS_Store
