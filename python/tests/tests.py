@@ -18,5 +18,10 @@ class TestFixture(unittest.TestCase):
         r = s.restoreString("codeleet", [4,5,6,7,0,2,1,3])
         self.assertEqual(r, "leetcode")
 
+    def test_matrixCellsInDistanceOrder(self):
+        s = problems.MatrixCellsInDistanceOrder.Solution()
+        r = s.allCellsDistOrder(1,2, 0, 0)
+        self.assertEqual(r, [[0,0], [0,1]])
+
 
  
