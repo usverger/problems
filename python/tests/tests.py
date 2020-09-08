@@ -23,5 +23,10 @@ class TestFixture(unittest.TestCase):
         r = s.allCellsDistOrder(1,2, 0, 0)
         self.assertEqual(r, [[0,0], [0,1]])
 
+    def test_reverseInteger(self):
+        s = problems.ReverseInteger.Solution()
+        r = s.reverse(123)
+        self.assertEqual(r, 321)
+
 
  
