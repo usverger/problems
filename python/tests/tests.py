@@ -1,4 +1,5 @@
 import unittest
+from typing import List
 import python.problems as problems
 
 class TestFixture(unittest.TestCase):
@@ -22,6 +23,13 @@ class TestFixture(unittest.TestCase):
         s = problems.MatrixCellsInDistanceOrder.Solution()
         r = s.allCellsDistOrder(1,2, 0, 0)
         self.assertEqual(r, [[0,0], [0,1]])
+
+    def test_sumofRootToLeafBinaryNumbers(self):
+        s = problems.SumofRootToLeafBinaryNumbers.Solution()
+        treeNode = s.generateTreeNode(None, 0, [1,0,1,0,1,0,1])
+        
+        r = s.sumRootToLeaf(treeNode)
+        self.assertEqual(r, 22, 22)
 
 
  
