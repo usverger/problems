@@ -30,6 +30,20 @@ class TestFixture(unittest.TestCase):
         
         r = s.sumRootToLeaf(treeNode)
         self.assertEqual(r, 22, 22)
+        
+    def test_reverseInteger(self):
+        s = problems.ReverseInteger.Solution()
+        r = s.reverse(123)
+        self.assertEqual(r, 321)
+
+    def test_palindromeNumber(self):
+        s = problems.PalindromeNumber.Solution()
+
+        r = s.isPalindrome(121)
+        self.assertEqual(r, True)
+
+        r = s.isPalindrome(10)
+        self.assertEqual(r, False)
 
 
  
