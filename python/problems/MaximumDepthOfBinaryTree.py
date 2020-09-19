@@ -8,26 +8,27 @@ class TreeNode:
         self.right = right
 
 class Solution:
-    def sumRootToLeaf(self, root: TreeNode) -> int:
-        totalSum = 0
-        stack = [(root, 0)] # first element of the tuple is the node, the second is path value before that node
+    def maxDepth(self, root: TreeNode) -> int:
+        maxDepth = 0
+        
+        stack = [(root, 0)]
         
         while stack:
-            node, currentPathValue = stack.pop()
+            node, current = stack.pop()
             if node is None:
-                return totalSum
-
-            currentPathValue = currentPathValue << 1 | node.val # shift left and plus another digit
+                return maxDepth
+            
             if not (node.left or node.right): # this is a leaf
-                totalSum = totalSum + currentPathValue
+                if maxDepth < current + 1:
+                    maxDepth = current + 1             
             else:
                 if node.left:
-                    stack.append((node.left, currentPathValue))
+                    stack.append((node.left, current + 1))
 
                 if node.right:  
-                    stack.append((node.right, currentPathValue))
-                    
-        return totalSum
+                    stack.append((node.right, current + 1))
+        
+        return maxDepth
 
     def generateTreeNode(self, root: TreeNode, index: int, values: List[int]):
 
