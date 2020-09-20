@@ -89,6 +89,27 @@ class Solution:
                     
         return minDepth
 
+    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+        result = []
+        q = []
+        q.append((root, 0)) # q will contain the node candidates to traverse along with their level number
+        
+        while q:            
+            n = q.pop(0) # take the next node
+            if n[0] is not None:
+                
+                # visit the current node by building the result
+                if n[1] > len(result) - 1:
+                    result.append([])
+                    
+                result[n[1]].append(n[0].val)
+                
+                # discover the child nodes and append to the candidates queue
+                q.append((n[0].left, n[1] + 1))
+                q.append((n[0].right, n[1] + 1))
+        
+        return result
+
     def generateTreeNode(self, root: TreeNode, index: int, values: List[int]):
 
         # for each generation
