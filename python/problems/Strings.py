@@ -27,13 +27,5 @@ class Solution:
         o = histogram['o']
         n = histogram['n']
         
-        numberban = min(b,a,n)
-        numberlo = min(l,o) - min(l,o) % 2
-        while numberlo > 0:
-            if numberban >= numberlo // 2:
-                return numberlo // 2
-            else:
-                numberlo -= 2
-        
-        return 0
+        return min(b, a, n, l // 2, o // 2)
             
