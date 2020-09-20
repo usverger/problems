@@ -3,6 +3,13 @@ import string
 from collections import defaultdict
 
 class Solution:
+    def lengthOfLastWord(self, s: str) -> int:        
+        words = s.split()
+        if not words:
+            return 0
+        
+        return(len(words.pop()))
+
     def restoreString(self, s: str, indices: List[int]) -> str:
         result = [''] * len(s)
         for i in range(len(s)):

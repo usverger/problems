@@ -4,6 +4,19 @@ import python.problems as problems
 
 class Strings(unittest.TestCase):
 
+    def test_lengthOfLastWord(self):
+        s = problems.Strings.Solution()
+        r = s.lengthOfLastWord("")
+        self.assertEqual(r, 0)
+        r = s.lengthOfLastWord(" ")
+        self.assertEqual(r, 0)
+        r = s.lengthOfLastWord("  ")
+        self.assertEqual(r, 0)
+        r = s.lengthOfLastWord("Hello World")
+        self.assertEqual(r, 5)
+        r = s.lengthOfLastWord("Hello   World   ")
+        self.assertEqual(r, 5)
+
     def test_restoreString(self):
         s = problems.Strings.Solution()
         r = s.restoreString("codeleet", [4,5,6,7,0,2,1,3])
