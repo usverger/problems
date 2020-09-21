@@ -3,6 +3,31 @@ import string
 from collections import defaultdict
 
 class Solution:
+
+    def validParentheses(self, s: str) -> bool:
+        
+        if not s:
+            return True
+        
+        stack = []
+        
+        for c in s:
+            
+            if c in ['(', '{', '[']:
+                stack.append(c)
+            else:
+                if len(stack) == 0:
+                    return False
+                
+                t = stack.pop()
+                if not ((c == ')' and t == '(') or (c == '}' and t == '{') or (c == ']' and t == '[')):
+                    return False
+        
+        if len(stack) != 0:
+            return False
+        
+        return True
+
     def lengthOfLastWord(self, s: str) -> int:        
         words = s.split()
         if not words:
