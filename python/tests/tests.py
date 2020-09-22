@@ -4,6 +4,17 @@ import python.problems as problems
 
 class Other(unittest.TestCase):
 
+    def test_moveZeroes(self):
+        s = problems.MoveZeroes.Solution()
+
+        arr = [0,1,0,3,12]
+        s.moveZeroes(arr)
+        self.assertEqual(arr, [1,3,12,0,0])
+
+        arr = [0,1]
+        r = s.moveZeroes(arr)
+        self.assertEqual(arr, [1,0])
+
     def test_twoSum(self):
         s = problems.TwoSum.Solution()
         r = s.twoSum([2,7,11,15], 9)
