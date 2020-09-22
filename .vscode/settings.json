@@ -11,5 +11,5 @@
     "python.testing.unittestEnabled": true,
     "python_commented.pythonPath": "/usr/local/bin/python3",
 
-    "dotnetCoreExplorer.searchpatterns": "**/bin/**/*.{dll,exe}"
+    "dotnetCoreExplorer.searchpatterns": "**/bin/**/csharp.{dll,exe}"
 }
