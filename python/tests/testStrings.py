@@ -4,6 +4,20 @@ import python.problems as problems
 
 class Strings(unittest.TestCase):
 
+    def test_generateParentheses(self):
+        s = problems.Strings.Solution()
+        self.assertEqual(s.generateParenthesis_BruteForce(3), ["((()))","(()())","(())()","()(())","()()()"])
+        self.assertEqual(s.generateParenthesis_WithCounters(3), ["((()))","(()())","(())()","()(())","()()()"])
+
+    def test_validParentheses(self):
+        s = problems.Strings.Solution()
+        self.assertEqual(s.validParentheses("()"), True)
+        self.assertEqual(s.validParentheses("()[]"), True)
+        self.assertEqual(s.validParentheses("()[]{}"), True)
+        self.assertEqual(s.validParentheses("(]"), False)
+        self.assertEqual(s.validParentheses("([)]"), False)
+        self.assertEqual(s.validParentheses("{[]}"), True)
+        
     def test_lengthOfLastWord(self):
         s = problems.Strings.Solution()
         r = s.lengthOfLastWord("")

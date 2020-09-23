@@ -4,6 +4,29 @@ import python.problems as problems
 
 class Other(unittest.TestCase):
 
+    def test_addStrings(self):
+        s = problems.AddStrings.Solution()
+
+        r = s.addStrings('0', '0')
+        self.assertEqual(r, '0')
+        r = s.addStrings('1', '9')
+        self.assertEqual(r, '10')
+        r = s.addStrings('9', '9')
+        self.assertEqual(r, '18')
+        r = s.addStrings('9', '999')
+        self.assertEqual(r, '1008')
+
+    def test_moveZeroes(self):
+        s = problems.MoveZeroes.Solution()
+
+        arr = [0,1,0,3,12]
+        s.moveZeroes(arr)
+        self.assertEqual(arr, [1,3,12,0,0])
+
+        arr = [0,1]
+        r = s.moveZeroes(arr)
+        self.assertEqual(arr, [1,0])
+
     def test_twoSum(self):
         s = problems.TwoSum.Solution()
         r = s.twoSum([2,7,11,15], 9)
