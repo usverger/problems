@@ -27,6 +27,8 @@ class Solution:
 
         result = 0
         for count in histogram:
+            # C of n elements by k = n! / (k! * (n - k)!)
+            # in our case count! / (2! * (count - 2)!) = count * (count - 1) / 2
             result += count * (count - 1) // 2
 
         return result
