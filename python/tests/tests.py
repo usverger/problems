@@ -4,6 +4,21 @@ import python.problems as problems
 
 class Other(unittest.TestCase):
 
+    def test_numIdenticalPairs(self):
+        s = problems.NumberOfGoodPairs.Solution()
+        self.assertEqual(s.numIdenticalPairs_BruteForce([1,2,3,1,1,3]), 4)
+        self.assertEqual(s.numIdenticalPairs_BruteForce([1,1,1,1]), 6)
+        self.assertEqual(s.numIdenticalPairs_BruteForce([1,2,3]), 0)
+        self.assertEqual(s.numIdenticalPairs_Linear([1,2,3,1,1,3]), 4)
+        self.assertEqual(s.numIdenticalPairs_Linear([1,1,1,1]), 6)
+        self.assertEqual(s.numIdenticalPairs_Linear([1,2,3]), 0)
+
+    def test_sumOddLengthSubarrays(self):
+        s = problems.SumOddLengthSubarrays.Solution()
+        self.assertEqual(s.sumOddLengthSubarrays_BruteForce([1,4,2,5,3]), 58)
+        self.assertEqual(s.sumOddLengthSubarrays_BruteForce([1,2]), 3)
+        self.assertEqual(s.sumOddLengthSubarrays_BruteForce([10,11,12]), 66)
+
     def test_addStrings(self):
         s = problems.AddStrings.Solution()
 
