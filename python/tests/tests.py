@@ -56,20 +56,4 @@ class Other(unittest.TestCase):
         s = problems.MatrixCellsInDistanceOrder.Solution()
         r = s.allCellsDistOrder(1,2, 0, 0)
         self.assertEqual(r, [[0,0], [0,1]])
-        
-    def test_reverseInteger(self):
-        s = problems.ReverseInteger.Solution()
-        r = s.reverse(123)
-        self.assertEqual(r, 321)
-
-    def test_palindromeNumber(self):
-        s = problems.PalindromeNumber.Solution()
-
-        r = s.isPalindrome(121)
-        self.assertEqual(r, True)
-
-        r = s.isPalindrome(10)
-        self.assertEqual(r, False)
-
-
- 
+     
