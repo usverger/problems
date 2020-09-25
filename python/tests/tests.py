@@ -3,7 +3,13 @@ from typing import List
 import python.problems as problems
 
 class Other(unittest.TestCase):
-    
+
+    def test_climbStairs(self):
+        s = problems.ClimbStairs.Solution()
+        self.assertEqual(s.climbStairs(2), 2)
+        self.assertEqual(s.climbStairs(3), 3)
+        self.assertEqual(s.climbStairs(38), 63245986)
+
     def test_largestTriangleArea(self):
         s = problems.LargestTriangleArea.Solution()
         self.assertEqual(s.largestTriangleArea([[0,0],[0,1],[1,0],[0,2],[2,0]]), 2.0)
