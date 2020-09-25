@@ -3,6 +3,10 @@ from typing import List
 import python.problems as problems
 
 class Other(unittest.TestCase):
+    
+    def test_largestTriangleArea(self):
+        s = problems.LargestTriangleArea.Solution()
+        self.assertEqual(s.largestTriangleArea([[0,0],[0,1],[1,0],[0,2],[2,0]]), 2.0)
 
     def test_numIdenticalPairs(self):
         s = problems.NumberOfGoodPairs.Solution()

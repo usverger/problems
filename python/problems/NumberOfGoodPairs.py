@@ -16,9 +16,6 @@ class Solution:
                     
                 
     def numIdenticalPairs_Linear(self, nums: List[int]) -> int:
-        
-        def good(i: int, j: int, nums: List[int]) -> bool:
-            return nums[i] == nums[j] and i < j
 
         histogram = [0] * 100 # according to problem statement
 
