@@ -3,6 +3,20 @@ from collections import defaultdict
 
 class Solution:
 
+    def dominantIndex(self, nums: List[int]) -> int:
+        max = 0
+        maxIndex = -1
+        for i, v in enumerate(nums):
+            if v > max:
+                maxIndex = i
+                max = v
+                
+        for i, v in enumerate(nums):
+            if 2*v > max and i != maxIndex:
+                return -1
+            
+        return maxIndex
+
     def sumOddLengthSubarrays_BruteForce(self, arr: List[int]) -> int:
         
         result = 0

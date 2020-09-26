@@ -4,10 +4,17 @@ import python.problems as problems
 
 class Arrays(unittest.TestCase):
 
+    def test_dominantIndex(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.dominantIndex([3, 6, 1, 0]), 1)
+        self.assertEqual(s.dominantIndex([1,2,3,4]), -1)
+        self.assertEqual(s.dominantIndex([]), -1)
+
     def test_pivotIndex(self):
         s = problems.Arrays.Solution()
         self.assertEqual(s.pivotIndex([1,7,3,6,5,6]), 3)
         self.assertEqual(s.pivotIndex([1,2,3]), -1)
+        self.assertEqual(s.pivotIndex([]), -1)
 
     def test_numIdenticalPairs(self):
         s = problems.Arrays.Solution()
