@@ -4,6 +4,21 @@ import python.problems as problems
 
 class Arrays(unittest.TestCase):
 
+    def test_addStrings(self):
+        s = problems.Arrays.Solution()
+
+        self.assertEqual(s.addStrings('0', '0'), '0') 
+        self.assertEqual(s.addStrings('1', '9'), '10')
+        self.assertEqual(s.addStrings('9', '9'), '18')
+        self.assertEqual(s.addStrings('9', '999'), '1008')
+
+    def test_plusOne(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.plusOne([1,2,3]), [1,2,4])
+        self.assertEqual(s.plusOne([0]), [1])
+        self.assertEqual(s.plusOne([1]), [2])
+        self.assertEqual(s.plusOne([9,9,9]), [1,0,0,0])
+
     def test_dominantIndex(self):
         s = problems.Arrays.Solution()
         self.assertEqual(s.dominantIndex([3, 6, 1, 0]), 1)
