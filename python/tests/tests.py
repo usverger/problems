@@ -4,6 +4,12 @@ import python.problems as problems
 
 class Other(unittest.TestCase):
 
+    def test_numWaterBottles(self):
+        s = problems.WaterBottles.Solution()
+        self.assertEqual(s.numWaterBottles(3, 2), 5)
+        self.assertEqual(s.numWaterBottles(9, 3), 13)
+        self.assertEqual(s.numWaterBottles(15, 4), 19)
+
     def test_climbStairs(self):
         s = problems.ClimbStairs.Solution()
         self.assertEqual(s.climbStairs(2), 2)
@@ -49,7 +55,7 @@ class Other(unittest.TestCase):
         self.assertEqual(arr, [1,3,12,0,0])
 
         arr = [0,1]
-        r = s.moveZeroes(arr)
+        s.moveZeroes(arr)
         self.assertEqual(arr, [1,0])
 
     def test_twoSum(self):
