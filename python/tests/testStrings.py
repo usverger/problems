@@ -4,6 +4,12 @@ import python.problems as problems
 
 class Strings(unittest.TestCase):
 
+
+    def test_firstUniqChar(self):
+        s = problems.Strings.Solution()
+        self.assertEqual(s.firstUniqChar('leetcode'), 0)
+        self.assertEqual(s.firstUniqChar('loveleetcode'), 2)
+
     def test_generateParentheses(self):
         s = problems.Strings.Solution()
         self.assertEqual(s.generateParenthesis_BruteForce(3), ["((()))","(()())","(())()","()(())","()()()"])
