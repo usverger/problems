@@ -20,21 +20,6 @@ class Other(unittest.TestCase):
         s = problems.LargestTriangleArea.Solution()
         self.assertEqual(s.largestTriangleArea([[0,0],[0,1],[1,0],[0,2],[2,0]]), 2.0)
 
-    def test_numIdenticalPairs(self):
-        s = problems.NumberOfGoodPairs.Solution()
-        self.assertEqual(s.numIdenticalPairs_BruteForce([1,2,3,1,1,3]), 4)
-        self.assertEqual(s.numIdenticalPairs_BruteForce([1,1,1,1]), 6)
-        self.assertEqual(s.numIdenticalPairs_BruteForce([1,2,3]), 0)
-        self.assertEqual(s.numIdenticalPairs_Linear([1,2,3,1,1,3]), 4)
-        self.assertEqual(s.numIdenticalPairs_Linear([1,1,1,1]), 6)
-        self.assertEqual(s.numIdenticalPairs_Linear([1,2,3]), 0)
-
-    def test_sumOddLengthSubarrays(self):
-        s = problems.SumOddLengthSubarrays.Solution()
-        self.assertEqual(s.sumOddLengthSubarrays_BruteForce([1,4,2,5,3]), 58)
-        self.assertEqual(s.sumOddLengthSubarrays_BruteForce([1,2]), 3)
-        self.assertEqual(s.sumOddLengthSubarrays_BruteForce([10,11,12]), 66)
-
     def test_addStrings(self):
         s = problems.AddStrings.Solution()
 
@@ -46,17 +31,6 @@ class Other(unittest.TestCase):
         self.assertEqual(r, '18')
         r = s.addStrings('9', '999')
         self.assertEqual(r, '1008')
-
-    def test_moveZeroes(self):
-        s = problems.MoveZeroes.Solution()
-
-        arr = [0,1,0,3,12]
-        s.moveZeroes(arr)
-        self.assertEqual(arr, [1,3,12,0,0])
-
-        arr = [0,1]
-        s.moveZeroes(arr)
-        self.assertEqual(arr, [1,0])
 
     def test_twoSum(self):
         s = problems.TwoSum.Solution()
