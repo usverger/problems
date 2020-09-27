@@ -4,6 +4,11 @@ import python.problems as problems
 
 class Strings(unittest.TestCase):
 
+    def test_strStr(self):
+        s = problems.Strings.Solution()
+        self.assertEqual(s.strStr('mississippi', 'issip'), 4)
+        self.assertEqual(s.strStr('hello', 'll'), 2)
+        self.assertEqual(s.strStr('a', 'a'), 0)
 
     def test_firstUniqChar(self):
         s = problems.Strings.Solution()
