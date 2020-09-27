@@ -3,6 +3,31 @@ from collections import defaultdict
 
 class Solution:
 
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        M = len(matrix)
+        if M == 0: return []
+        N = len(matrix[0])
+        if N == 0: return []
+
+        result = []
+
+        maxradius = -(-min(M, N) // 2) # divided by 2 rounded up
+        for r in range(maxradius):
+        #r = 1
+            result.append(matrix[r][r])
+            for j in range(r + 1, N - r):
+                result.append(matrix[r][j])
+            for i in range(r + 1, M - r):
+                result.append(matrix[i][N - r - 1])
+            if r < M - r - 1 and r < N - r - 1:
+                for j in range(N - r - 2, r - 1, -1):
+                    result.append(matrix[M - r - 1][j])
+                for i in range(M - r - 2, r, -1):
+                    result.append(matrix[i][r])            
+        
+        return result
+
+
     def findDiagonalOrder_WithMap(self, matrix: List[List[int]]) -> List[int]:
         M = len(matrix)
         if M == 0: return []

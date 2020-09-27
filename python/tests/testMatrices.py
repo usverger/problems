@@ -4,6 +4,15 @@ import python.problems as problems
 
 class Matrices(unittest.TestCase):
 
+    def test_spiralOrder(self):
+        s = problems.Matrices.Solution()
+        
+        self.assertEqual(s.spiralOrder([[1,2,3],[4,5,6],[7,8,9]]), [1,2,3,6,9,8,7,4,5])
+        self.assertEqual(s.spiralOrder([]), [])
+        self.assertEqual(s.spiralOrder([[]]), [])
+        self.assertEqual(s.spiralOrder([[1,2],[3,4]]), [1,2,4,3])
+        self.assertEqual(s.spiralOrder([[1,2,3,4],[5,6,7,8],[9,10,11,12]]), [1,2,3,4,8,12,11,10,9,5,6,7])
+
     def test_findDiagonalOrder_WithMap(self):
         s = problems.Matrices.Solution()
         
