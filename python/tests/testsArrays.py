@@ -4,6 +4,13 @@ import python.problems as problems
 
 class Arrays(unittest.TestCase):
 
+    def test_addBinary(self):
+        s = problems.Arrays.Solution()
+
+        self.assertEqual(s.addBinary('0', '0'), '0') 
+        self.assertEqual(s.addBinary('11', '1'), '100')
+        self.assertEqual(s.addBinary('1010', '1011'), '10101')
+
     def test_addStrings(self):
         s = problems.Arrays.Solution()
 

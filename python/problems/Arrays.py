@@ -3,6 +3,28 @@ from collections import defaultdict
 
 class Solution:
 
+    def addBinary(self, a: str, b: str) -> str:
+        #aint = int(a, 2)
+        #bint = int(b, 2)
+        #return bin(aint + bint)[2:]
+        
+        result = ''
+        carry = 0
+        length = max(len(a), len(b))
+        
+        for i in range(1, length + 1):
+            adigit = int(a[-i]) if i <= len(a) else 0
+            bdigit = int(b[-i]) if i <= len(b) else 0
+            rdigit = (adigit + bdigit + carry) % 2
+            carry = 1 if (adigit + bdigit + carry) > 1 else 0
+            
+            result = str(rdigit) + result
+            
+        if carry == 1:
+            result = '1' + result
+            
+        return result
+
     def addStrings(self, num1: str, num2: str) -> str:
         
         if len(num1) < len(num2):
