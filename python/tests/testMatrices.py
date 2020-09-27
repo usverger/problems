@@ -6,9 +6,12 @@ class Matrices(unittest.TestCase):
 
     def test_pascalTriangle(self):
         s = problems.Matrices.Solution()
-        #self.assertEqual(s.pascalTriangle(1), [[1]])
-        #self.assertEqual(s.pascalTriangle(2), [[1], [1,1]])
+        self.assertEqual(s.pascalTriangle(1), [[1]])
+        self.assertEqual(s.pascalTriangle(2), [[1], [1,1]])
         self.assertEqual(s.pascalTriangle(5), [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]])
+        self.assertEqual(s.pascalTriangle_WithPaddedArrays(1), [[1]])
+        self.assertEqual(s.pascalTriangle_WithPaddedArrays(2), [[1], [1,1]])
+        self.assertEqual(s.pascalTriangle_WithPaddedArrays(5), [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]])
 
     def test_spiralOrder(self):
         s = problems.Matrices.Solution()

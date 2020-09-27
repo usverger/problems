@@ -3,6 +3,15 @@ from collections import defaultdict
 
 class Solution:
 
+    def pascalTriangle_WithPaddedArrays(self, numRows: int) -> List[List[int]]:
+        if numRows == 0: return []
+        result = [[1]]
+        
+        for _ in range(numRows - 1):
+            m = map(lambda x, y: x + y, result[-1] + [0], [0] + result[-1])
+            result.append(list(m))
+        return result
+
     def pascalTriangle(self, numRows: int) -> List[List[int]]:
         
         if numRows == 0: return []
