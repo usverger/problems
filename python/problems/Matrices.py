@@ -3,6 +3,22 @@ from collections import defaultdict
 
 class Solution:
 
+    def pascalTriangle(self, numRows: int) -> List[List[int]]:
+        
+        if numRows == 0: return []
+        if numRows == 1: return [[1]]
+        if numRows == 2: return [[1],[1,1]]
+        
+        result = [[1], [1,1]]
+        for r in range(3, numRows + 1):
+            l = [0] * r
+            l[0] = 1
+            l[r - 1] = 1
+            for i in range(1, r - 1):
+                l[i] = result[r - 2][i - 1] + result[r - 2][i]
+            result.append(l)
+        return result
+
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
         M = len(matrix)
         if M == 0: return []
