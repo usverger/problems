@@ -29,9 +29,3 @@ class Other(unittest.TestCase):
         s = problems.TwoSumSorted.Solution()
         r = s.twoSum([2,7,11,15], 9)
         self.assertEqual(r, [1,2])
-        
-    def test_matrixCellsInDistanceOrder(self):
-        s = problems.MatrixCellsInDistanceOrder.Solution()
-        r = s.allCellsDistOrder(1,2, 0, 0)
-        self.assertEqual(r, [[0,0], [0,1]])
-     
