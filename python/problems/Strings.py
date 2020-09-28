@@ -3,7 +3,20 @@ import string
 from collections import defaultdict
 
 class Solution:
-    
+
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        if not strs: return ''
+        
+        n = min(map(len, strs))
+        maxIndex = -1
+        for index in range(n):     
+            if all(strs[0][index] == s[index] for s in strs):
+                maxIndex = index
+            else:
+                break
+            
+        return strs[0][:maxIndex + 1]
+            
     def strStr(self, haystack: str, needle: str) -> int:
         if not needle: return 0
         if len(needle) > len(haystack): return -1

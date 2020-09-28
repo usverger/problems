@@ -4,11 +4,19 @@ import python.problems as problems
 
 class Strings(unittest.TestCase):
 
+    def test_longestCommonPrefix(self):
+        s = problems.Strings.Solution()
+        self.assertEqual(s.longestCommonPrefix(["flower", "flow", "flight"]), 'fl')
+        self.assertEqual(s.longestCommonPrefix([]), '')
+        self.assertEqual(s.longestCommonPrefix(["dog","racecar","car"]), '')
+        self.assertEqual(s.longestCommonPrefix(['leet', 'leeds', 'leetcode', 'leets']), 'lee')
+
     def test_strStr(self):
         s = problems.Strings.Solution()
         self.assertEqual(s.strStr('mississippi', 'issip'), 4)
         self.assertEqual(s.strStr('hello', 'll'), 2)
         self.assertEqual(s.strStr('a', 'a'), 0)
+        self.assertEqual(s.strStr('aaaaaaa', 'bba'), -1)
 
     def test_firstUniqChar(self):
         s = problems.Strings.Solution()
