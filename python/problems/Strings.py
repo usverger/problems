@@ -4,6 +4,16 @@ from collections import defaultdict
 
 class Solution:
 
+    def reverseString(self, s: List[str]) -> None:
+        i = 0
+        j = len(s) - 1
+        while i < j:
+            k = s[i]
+            s[i] = s[j]
+            s[j] = k
+            i += 1
+            j -= 1
+
     def longestCommonPrefix(self, strs: List[str]) -> str:
         if not strs: return ''
         
@@ -16,7 +26,7 @@ class Solution:
                 break
             
         return strs[0][:maxIndex + 1]
-            
+
     def strStr(self, haystack: str, needle: str) -> int:
         if not needle: return 0
         if len(needle) > len(haystack): return -1

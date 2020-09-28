@@ -4,6 +4,12 @@ import python.problems as problems
 
 class Strings(unittest.TestCase):
 
+    def test_reverseString(self):
+        s = problems.Strings.Solution()
+        input = ['h','e','l','l','o']
+        s.reverseString(input)
+        self.assertEqual(input, ['o','l','l','e','h'])
+
     def test_longestCommonPrefix(self):
         s = problems.Strings.Solution()
         self.assertEqual(s.longestCommonPrefix(["flower", "flow", "flight"]), 'fl')
