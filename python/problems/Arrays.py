@@ -3,6 +3,18 @@ from collections import defaultdict
 
 class Solution:
 
+    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        c = 0 # counter of ones
+        m = 0 # maximum counter of ones
+        for i in nums:
+            if i == 1:
+                c += 1
+                m = max(m, c)
+            else:
+                c = 0
+
+        return m
+
     def removeElement(self, nums: List[int], val: int) -> int:
         j = 0
         for i in range(len(nums)):

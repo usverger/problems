@@ -4,6 +4,12 @@ import python.problems as problems
 
 class Arrays(unittest.TestCase):
 
+    def test_findMaxConsecutiveOnes(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.findMaxConsecutiveOnes([1]), 1)
+        self.assertEqual(s.findMaxConsecutiveOnes([1, 1, 0]), 2)
+        self.assertEqual(s.findMaxConsecutiveOnes([0, 1, 1, 0, 1]), 2)
+
     def test_removeElement(self):
         s = problems.Arrays.Solution()
         input = [3,2,2,3]
