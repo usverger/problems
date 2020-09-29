@@ -19,13 +19,3 @@ class Other(unittest.TestCase):
     def test_largestTriangleArea(self):
         s = problems.LargestTriangleArea.Solution()
         self.assertEqual(s.largestTriangleArea([[0,0],[0,1],[1,0],[0,2],[2,0]]), 2.0)
-
-    def test_twoSum(self):
-        s = problems.TwoSum.Solution()
-        r = s.twoSum([2,7,11,15], 9)
-        self.assertEqual(r, [0,1])
-
-    def test_twoSumSorted(self):
-        s = problems.TwoSumSorted.Solution()
-        r = s.twoSum([2,7,11,15], 9)
-        self.assertEqual(r, [1,2])

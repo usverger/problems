@@ -3,6 +3,51 @@ from collections import defaultdict
 
 class Solution:
 
+    def removeElement(self, nums: List[int], val: int) -> int:
+        j = 0
+        for i in range(len(nums)):
+            if nums[i] != val:
+                nums[j] = nums[i]
+                j += 1
+        return j
+
+    def twoSumSorted(self, nums: List[int], target: int) -> List[int]:
+        l = 0
+        r = len(nums) - 1
+        while l < r:
+            if nums[l] + nums[r] == target:
+                return [l + 1, r + 1]
+            
+            if nums[l] + nums[r] > target:
+                r -= 1
+            else:
+                l += 1
+
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        
+        d = defaultdict(list)
+        for i in range(len(nums)):
+            d[nums[i]].append(i)
+        
+        for i in range(len(nums)):
+            
+            j = d.get(target - nums[i])
+            if not j:
+                continue
+            
+            if len(j) == 1:
+                if (j[0] == i):
+                    continue
+                else:
+                    return [i, j[0]]
+            
+            if len(j) > 1:
+                if (j[0] == i):
+                    return [i, j[1]]
+                else:
+                    return [i, j[0]]
+            
+
     def arrayPairSum(self, nums: List[int]) -> int:
         return sum(sorted(nums)[::2])
 

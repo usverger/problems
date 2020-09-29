@@ -4,6 +4,26 @@ import python.problems as problems
 
 class Arrays(unittest.TestCase):
 
+    def test_removeElement(self):
+        s = problems.Arrays.Solution()
+        input = [3,2,2,3]
+        l = s.removeElement(input, 3)
+        self.assertEqual(input[:l], [2,2])
+
+        input = [4,1,2,3,5]
+        l = s.removeElement(input, 4)
+        self.assertEqual(input[:l], [1,2,3,5])
+
+    def test_twoSum(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.twoSum([2,7,11,15], 9), [0,1])
+
+    def test_twoSumSorted(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.twoSumSorted([2,7,11,15], 9), [1,2])
+        self.assertEqual(s.twoSumSorted([-1, 0], -1), [1,2])
+        self.assertEqual(s.twoSumSorted([2, 3, 4], 6), [1,3])
+
     def test_arrayPairSum(self):
         s = problems.Arrays.Solution()
 
