@@ -4,6 +4,12 @@ import python.problems as problems
 
 class Arrays(unittest.TestCase):
 
+    def test_arrayPairSum(self):
+        s = problems.Arrays.Solution()
+
+        self.assertEqual(s.arrayPairSum([1,4,3,2]), 4) 
+        self.assertEqual(s.arrayPairSum([1,1,2,3,4,5]), 7)
+
     def test_addBinary(self):
         s = problems.Arrays.Solution()
 

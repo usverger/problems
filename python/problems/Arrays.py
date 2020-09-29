@@ -3,6 +3,9 @@ from collections import defaultdict
 
 class Solution:
 
+    def arrayPairSum(self, nums: List[int]) -> int:
+        return sum(sorted(nums)[::2])
+
     def addBinary(self, a: str, b: str) -> str:
         #aint = int(a, 2)
         #bint = int(b, 2)
