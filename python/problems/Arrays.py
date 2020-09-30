@@ -3,6 +3,63 @@ from collections import defaultdict
 
 class Solution:
 
+    def rotate(self, nums: List[int], k: int) -> None:
+        n = len(nums)
+        k = k % n
+        
+        start = 0
+        count = 0
+        while count < n:
+            currentIndex = start
+            currentValue = nums[start]
+            while True: # start the stepping and remember the the current value
+                nextIndex = (currentIndex + k) % n
+                temp = nums[nextIndex]
+                nums[nextIndex] = currentValue
+                currentValue = temp
+                currentIndex = nextIndex
+                count += 1
+                
+                if start == currentIndex:
+                    break
+            start += 1
+        
+        #extra array to hold the right part
+        #right = nums[-k:]
+        #for i in reversed(range(n - k)):
+        #    nums[i + k] = nums[i]
+        #for i in range(len(right)):
+        #    nums[i] = right[i]
+            
+        #brute force - k times rotate by 1   
+        #for s in range(k):
+        #    last = nums[-1]
+        #    for i in range(n - 1):
+        #        temp = last
+        #        last = nums[i]
+        #        nums[i] = temp
+
+    def minSubArrayLen_BruteForce(self, s: int, nums: List[int]) -> int:
+       for l in range(1, len(nums) + 1): # all possible lengths
+           for i in range(len(nums) - l + 1): # all possible subarrays of given length
+               m = sum(nums[i:i+l])
+               if m >= s:
+                   return l
+               
+       return 0
+    
+    def minSubArrayLen(self, s: int, nums: List[int]) -> int:
+        left = 0
+        m = 2**31 - 1
+        currentSum = 0
+        for i in range(len(nums)): # expand the right bracket
+            currentSum += nums[i]
+            while currentSum >= s: # found a sub array candidate, try shrinking the left bracket
+                m = min(m, i - left + 1) 
+                currentSum -= nums[left]
+                left += 1
+        return m if m < 2**31 - 1 else 0
+
     def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
         c = 0 # counter of ones
         m = 0 # maximum counter of ones
@@ -59,7 +116,6 @@ class Solution:
                 else:
                     return [i, j[0]]
             
-
     def arrayPairSum(self, nums: List[int]) -> int:
         return sum(sorted(nums)[::2])
 

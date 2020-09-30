@@ -4,6 +4,22 @@ import python.problems as problems
 
 class Arrays(unittest.TestCase):
 
+    def test_rotate(self):
+        s = problems.Arrays.Solution()
+
+        p = [1]
+        s.rotate(p, 2)
+        self.assertEqual(p, [1])
+
+        p = [1,2,3,4,5,6,7]
+        s.rotate(p, 3)
+        self.assertEqual(p, [5,6,7,1,2,3,4])
+
+    def test_minSubArrayLen(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.minSubArrayLen(7, [2,3,1,2,4,3]), 2)
+        self.assertEqual(s.minSubArrayLen_BruteForce(7, [2,3,1,2,4,3]), 2)
+
     def test_findMaxConsecutiveOnes(self):
         s = problems.Arrays.Solution()
         self.assertEqual(s.findMaxConsecutiveOnes([1]), 1)
