@@ -4,6 +4,9 @@ from collections import defaultdict
 
 class Solution:
 
+    def reverseWords_Naive(self, s: str) -> str:
+        return ' '.join(reversed(s.split()))
+
     def reverseString(self, s: List[str]) -> None:
         i = 0
         j = len(s) - 1

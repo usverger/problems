@@ -4,6 +4,11 @@ import python.problems as problems
 
 class Strings(unittest.TestCase):
 
+    def test_reverseWords(self):
+        s = problems.Strings.Solution()
+        self.assertEqual(s.reverseWords_Naive('Alice does not even like bob'), 'bob like even not does Alice')
+        self.assertEqual(s.reverseWords_Naive('  Bob    Loves  Alice   '), 'Alice Loves Bob')
+
     def test_reverseString(self):
         s = problems.Strings.Solution()
         input = ['h','e','l','l','o']
