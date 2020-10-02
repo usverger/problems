@@ -4,7 +4,7 @@ from collections import defaultdict
 
 class Solution:
 
-    def reverseWords(self, s: str) -> str:
+    def reverseWordsII(self, s: str) -> str:
         
         # in-place reverse from start to end
         def reverse(a: List[str], start: int, end: int) -> None:
@@ -46,7 +46,7 @@ class Solution:
         removeSpaces(result)
         return ''.join(result).strip()
 
-    def reverseWords_Naive(self, s: str) -> str:
+    def reverseWordsII_Naive(self, s: str) -> str:
         return ' '.join(reversed(s.split()))
 
     def reverseString(self, s: List[str]) -> None:

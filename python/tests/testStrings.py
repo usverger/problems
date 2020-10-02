@@ -4,15 +4,15 @@ import python.problems as problems
 
 class Strings(unittest.TestCase):
 
-    def test_reverseWords(self):
+    def test_reverseWordsII(self):
         s = problems.Strings.Solution()
-        self.assertEqual(s.reverseWords_Naive('Alice does not even like bob'), 'bob like even not does Alice')
-        self.assertEqual(s.reverseWords_Naive('  Bob    Loves  Alice   '), 'Alice Loves Bob')
-        self.assertEqual(s.reverseWords_Naive('    Alice   '), 'Alice')
-        self.assertEqual(s.reverseWords_Naive('the sky is blue'), 'blue is sky the')
-        self.assertEqual(s.reverseWords('  Bob    Loves  Alice   '), 'Alice Loves Bob')
-        self.assertEqual(s.reverseWords('    Alice   '), 'Alice')
-        self.assertEqual(s.reverseWords('the sky is blue'), 'blue is sky the')
+        self.assertEqual(s.reverseWordsII_Naive('Alice does not even like bob'), 'bob like even not does Alice')
+        self.assertEqual(s.reverseWordsII_Naive('  Bob    Loves  Alice   '), 'Alice Loves Bob')
+        self.assertEqual(s.reverseWordsII_Naive('    Alice   '), 'Alice')
+        self.assertEqual(s.reverseWordsII_Naive('the sky is blue'), 'blue is sky the')
+        self.assertEqual(s.reverseWordsII('  Bob    Loves  Alice   '), 'Alice Loves Bob')
+        self.assertEqual(s.reverseWordsII('    Alice   '), 'Alice')
+        self.assertEqual(s.reverseWordsII('the sky is blue'), 'blue is sky the')
 
     def test_reverseString(self):
         s = problems.Strings.Solution()
