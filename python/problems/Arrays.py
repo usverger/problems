@@ -3,6 +3,22 @@ from collections import defaultdict
 
 class Solution:
 
+    def getPascalRow(self, rowIndex: int) -> List[int]:
+        if rowIndex == 0: return [1]
+        
+        # prepare the result
+        a = [0] * (rowIndex + 1)
+        a[0] = 1
+        
+        for _ in range(1, rowIndex + 1):
+            a[0] = 1
+            prev = a[0]
+            for i in range(1, len(a)):
+                new = a[i] + prev
+                prev = a[i]
+                a[i] = new
+        return a
+
     def rotate(self, nums: List[int], k: int) -> None:
         n = len(nums)
         k = k % n

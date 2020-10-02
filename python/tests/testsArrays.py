@@ -4,6 +4,13 @@ import python.problems as problems
 
 class Arrays(unittest.TestCase):
 
+    def test_getPascalRow(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.getPascalRow(1), [1,1])
+        self.assertEqual(s.getPascalRow(2), [1,2,1])
+        self.assertEqual(s.getPascalRow(3), [1,3,3,1])
+        self.assertEqual(s.getPascalRow(7), [1,7,21,35,35,21,7,1])
+
     def test_rotate(self):
         s = problems.Arrays.Solution()
 
