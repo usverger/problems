@@ -8,6 +8,11 @@ class Strings(unittest.TestCase):
         s = problems.Strings.Solution()
         self.assertEqual(s.reverseWords_Naive('Alice does not even like bob'), 'bob like even not does Alice')
         self.assertEqual(s.reverseWords_Naive('  Bob    Loves  Alice   '), 'Alice Loves Bob')
+        self.assertEqual(s.reverseWords_Naive('    Alice   '), 'Alice')
+        self.assertEqual(s.reverseWords_Naive('the sky is blue'), 'blue is sky the')
+        self.assertEqual(s.reverseWords('  Bob    Loves  Alice   '), 'Alice Loves Bob')
+        self.assertEqual(s.reverseWords('    Alice   '), 'Alice')
+        self.assertEqual(s.reverseWords('the sky is blue'), 'blue is sky the')
 
     def test_reverseString(self):
         s = problems.Strings.Solution()

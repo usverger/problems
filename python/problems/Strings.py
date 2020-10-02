@@ -4,6 +4,48 @@ from collections import defaultdict
 
 class Solution:
 
+    def reverseWords(self, s: str) -> str:
+        
+        # in-place reverse from start to end
+        def reverse(a: List[str], start: int, end: int) -> None:
+            while start < end:
+                k = a[end]
+                a[end] = a[start]
+                a[start] = k
+                start += 1
+                end -= 1
+
+        def reverseByWord(a: List[str]) -> None:
+            i, j = 0, 0 # i would be the start of a word, j would be the end of a word
+            while i < len(a):
+                while i < j or (i < len(a) and a[i] == ' '): i += 1 # skip all spaces after last known end of a word
+                while j < i or (j < len(a) and a[j] != ' '): j += 1 # skip all non-spaces after last known start of a word
+                reverse(a, i, j - 1)
+
+        def removeSpaces(a: List[str]) -> None:
+            i, j = 0, 0 # i would be the slow pointer, j would be the main iterator
+            while j < len(a):
+                while j < len(a) and a[j] == ' ': j += 1 # skip any spaces before a word
+                while j < len(a) and a[j] != ' ': # copy all non-spaces to the end of the reduced string
+                    a[i] = a[j]
+                    i += 1 # change the end of new reduced string
+                    j += 1
+                while j < len(a) and a[j] == ' ': j += 1 # skip any spaces before a word
+                if j < len(a): # if still not the end of the string, preserve one space
+                     a[i] = ' '
+                     i += 1
+
+            # now all the rest should be stripped, we will fill it with spaces to strip later
+            while i < len(a):
+                a[i] = ' '
+                i += 1
+
+        result = list(s)
+        reverse(result, 0, len(result) - 1)
+        reverseByWord(result)
+        removeSpaces(result)
+        return ''.join(result).strip()
+
     def reverseWords_Naive(self, s: str) -> str:
         return ' '.join(reversed(s.split()))
 
