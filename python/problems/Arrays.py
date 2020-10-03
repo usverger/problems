@@ -3,6 +3,35 @@ from collections import defaultdict
 
 class Solution:
 
+    def findNumbers(self, nums: List[int]) -> int:
+        
+        def digits(n: int) -> int:
+            d = 0
+            while n // 10 > 0:
+                d += 1
+                n = n // 10
+            return d + 1
+        
+        c = 0 # counter
+        for i in range(len(nums)):
+            d = digits(nums[i])
+            if d % 2 == 0:
+                c += 1
+        return c
+
+    def removeDuplicates(self, nums: List[int]) -> int:
+        if len(nums) <= 1: return len(nums)
+        
+        i = 1 # slow pointer to show the end of result array
+        j = 1 # fast pointer
+        while j < len(nums):
+            while j < len(nums) and nums[j] == nums[i - 1]: j +=1 # skip duplicate values
+            if j < len(nums):
+                nums[i] = nums[j]
+                i += 1
+                j += 1
+        return i
+
     def getPascalRow(self, rowIndex: int) -> List[int]:
         if rowIndex == 0: return [1]
         

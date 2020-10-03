@@ -4,6 +4,29 @@ import python.problems as problems
 
 class Arrays(unittest.TestCase):
 
+    def test_findNumbers(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.findNumbers([555,901,482,1771]), 1)
+        self.assertEqual(s.findNumbers([12,345,2,6,7896]), 2)
+
+    def test_removeDuplicates(self):
+        s = problems.Arrays.Solution()
+        input = [0,0,1,1,1,2,2,3,3,4]
+        r = s.removeDuplicates(input)
+        self.assertEqual(input[:r], [0,1,2,3,4])
+
+        input = [0,0,1]
+        r = s.removeDuplicates(input)
+        self.assertEqual(input[:r], [0,1])
+
+        input = []
+        r = s.removeDuplicates(input)
+        self.assertEqual(input[:r], [])
+
+        input = [1,2,3,4,5]
+        r = s.removeDuplicates(input)
+        self.assertEqual(input[:r], [1,2,3,4,5])
+
     def test_getPascalRow(self):
         s = problems.Arrays.Solution()
         self.assertEqual(s.getPascalRow(1), [1,1])
