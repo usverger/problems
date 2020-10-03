@@ -3,6 +3,23 @@ from collections import defaultdict
 
 class Solution:
 
+    def duplicateZeros(self, arr: List[int]) -> None:
+        
+        def shiftRight(index: int, arr: List[int]):
+            i = len(arr) - 1
+            while i > index:
+                arr[i] = arr[i - 1]
+                i -= 1
+            arr[index] = 0
+        
+        i = 0
+        while i < len(arr) - 1:
+            if arr[i] == 0:
+                shiftRight(i + 1, arr)
+                i += 1
+            i += 1
+
+
     def sortedSquares(self, A: List[int]) -> List[int]:
         result = [0]*len(A) # declare an array of known length
         i = 0 # left pointer

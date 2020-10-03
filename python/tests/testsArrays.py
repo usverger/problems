@@ -4,6 +4,20 @@ import python.problems as problems
 
 class Arrays(unittest.TestCase):
 
+    def test_duplicateZeroes(self):
+        s = problems.Arrays.Solution()
+        input = [1,0,2,3,0,4,5,0]
+        s.duplicateZeros(input)
+        self.assertEqual(input, [1,0,0,2,3,0,0,4])
+
+        input = [1,2,3]
+        s.duplicateZeros(input)
+        self.assertEqual(input, [1,2,3])
+
+        input = [0,0,0]
+        s.duplicateZeros(input)
+        self.assertEqual(input, [0,0,0])
+
     def test_sortedSquares(self):
         s = problems.Arrays.Solution()
         self.assertEqual(s.sortedSquares([-4,-1,0,3,10]), [0,1,9,16,100])
