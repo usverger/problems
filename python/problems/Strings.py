@@ -4,6 +4,19 @@ from collections import defaultdict
 
 class Solution:
 
+    def removeDuplicates(self, nums: List[int]) -> int:
+        if len(nums) <= 1: return len(nums)
+        
+        i = 1 # slow pointer to show the end of result array
+        j = 1 # fast pointer
+        while j < len(nums):
+            while j < len(nums) and nums[j] == nums[i - 1]: j +=1 # skip duplicate values
+            if j < len(nums):
+                nums[i] = nums[j]
+                i += 1
+                j += 1
+        return i
+
     def reverseWordsII(self, s: str) -> str:
         
         # in-place reverse from start to end

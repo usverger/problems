@@ -4,6 +4,24 @@ import python.problems as problems
 
 class Strings(unittest.TestCase):
 
+    def test_removeDuplicates(self):
+        s = problems.Strings.Solution()
+        input = [0,0,1,1,1,2,2,3,3,4]
+        r = s.removeDuplicates(input)
+        self.assertEqual(input[:r], [0,1,2,3,4])
+
+        input = [0,0,1]
+        r = s.removeDuplicates(input)
+        self.assertEqual(input[:r], [0,1])
+
+        input = []
+        r = s.removeDuplicates(input)
+        self.assertEqual(input[:r], [])
+
+        input = [1,2,3,4,5]
+        r = s.removeDuplicates(input)
+        self.assertEqual(input[:r], [1,2,3,4,5])
+
     def test_reverseWordsII(self):
         s = problems.Strings.Solution()
         self.assertEqual(s.reverseWordsII_Naive('Alice does not even like bob'), 'bob like even not does Alice')
