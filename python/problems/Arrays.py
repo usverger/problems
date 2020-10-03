@@ -3,6 +3,22 @@ from collections import defaultdict
 
 class Solution:
 
+    def sortedSquares(self, A: List[int]) -> List[int]:
+        result = [0]*len(A) # declare an array of known length
+        i = 0 # left pointer
+        j = len(A) - 1 # right pointer
+        k = len(result) - 1 # result pointer
+        while i <= j:
+            if abs(A[i]) > abs(A[j]):
+                result[k] = A[i]**2
+                i += 1
+            else:
+                result[k] = A[j]**2
+                j -= 1
+
+            k -= 1
+        return result
+        
     def findNumbers(self, nums: List[int]) -> int:
         
         def digits(n: int) -> int:

@@ -4,6 +4,11 @@ import python.problems as problems
 
 class Arrays(unittest.TestCase):
 
+    def test_sortedSquares(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.sortedSquares([-4,-1,0,3,10]), [0,1,9,16,100])
+        self.assertEqual(s.sortedSquares([-7,-3,2,3,11]), [4,9,9,49,121])
+
     def test_findNumbers(self):
         s = problems.Arrays.Solution()
         self.assertEqual(s.findNumbers([555,901,482,1771]), 1)
