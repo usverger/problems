@@ -3,6 +3,20 @@ from collections import defaultdict
 
 class Solution:
 
+    def mergeSorted(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        k = m + n - 1 # pointer of the new arr
+        i = m - 1 # pointer on nums1
+        j = n - 1 # pointer on nums2
+        while k >= 0:            
+            if (i >= 0 and j >= 0 and nums1[i] >= nums2[j]) or j < 0:
+                nums1[k] = nums1[i]
+                i -= 1
+            elif (i >= 0 and j >= 0 and nums1[i] < nums2[j]) or i < 0:
+                nums1[k] = nums2[j]
+                j -= 1           
+            
+            k -= 1
+
     def duplicateZeros(self, arr: List[int]) -> None:
         
         def shiftRight(index: int, arr: List[int]):

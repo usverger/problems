@@ -4,6 +4,16 @@ import python.problems as problems
 
 class Arrays(unittest.TestCase):
 
+    def test_mergeSorted(self):
+        s = problems.Arrays.Solution()
+        input = [1,2,3,0,0,0]
+        s.mergeSorted(input, 3, [2,5,6], 3)
+        self.assertEqual(input, [1,2,2,3,5,6])
+
+        input = [0]
+        s.mergeSorted(input, 0, [1], 1)
+        self.assertEqual(input, [1])
+
     def test_duplicateZeroes(self):
         s = problems.Arrays.Solution()
         input = [1,0,2,3,0,4,5,0]
