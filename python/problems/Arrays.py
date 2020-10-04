@@ -3,6 +3,14 @@ from collections import defaultdict
 
 class Solution:
 
+    def checkIfExist(self, arr: List[int]) -> bool:
+        if not arr: return False
+
+        for i in range(len(arr) - 1):
+            for j in range(i + 1, len(arr)):
+                if arr[i] == 2 * arr[j] or arr[j] == 2 * arr[i]: return True
+        return False
+
     def mergeSorted(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
         k = m + n - 1 # pointer of the new arr
         i = m - 1 # pointer on nums1
@@ -32,7 +40,6 @@ class Solution:
                 shiftRight(i + 1, arr)
                 i += 1
             i += 1
-
 
     def sortedSquares(self, A: List[int]) -> List[int]:
         result = [0]*len(A) # declare an array of known length

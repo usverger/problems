@@ -4,6 +4,13 @@ import python.problems as problems
 
 class Arrays(unittest.TestCase):
 
+    def test_checkIfExist(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.checkIfExist([10,2,5,3]), True)
+        self.assertEqual(s.checkIfExist([7,1,14,11]), True)
+        self.assertEqual(s.checkIfExist([3,1,7,11]), False)
+        self.assertEqual(s.checkIfExist([-2,0,10,-19,4,6,-8]), False)
+
     def test_mergeSorted(self):
         s = problems.Arrays.Solution()
         input = [1,2,3,0,0,0]
