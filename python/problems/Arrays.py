@@ -3,6 +3,22 @@ from collections import defaultdict
 
 class Solution:
 
+    def replaceElements(self, arr: List[int]) -> List[int]:
+        if len(arr) == 0: return arr
+        if len(arr) == 1:
+            arr[0] = -1
+            return arr
+        
+        i = len(arr) - 2
+        m = arr[len(arr) - 1]
+        arr[len(arr) - 1] = -1
+        while i >= 0:
+            temp = arr[i]
+            arr[i] = m
+            m = max(m, temp)
+            i -= 1
+        return arr
+
     def validMountainArray(self, A: List[int]) -> bool:
         if not A: return False
         if len(A) < 3: return False

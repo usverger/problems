@@ -4,6 +4,10 @@ import python.problems as problems
 
 class Arrays(unittest.TestCase):
 
+    def test_replaceElements(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.replaceElements([17,18,5,4,6,1]), [18,6,6,6,1,-1])
+
     def test_validMountainArray(self):
         s = problems.Arrays.Solution()
         self.assertEqual(s.validMountainArray([1,2]), False)
