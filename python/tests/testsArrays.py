@@ -4,6 +4,10 @@ import python.problems as problems
 
 class Arrays(unittest.TestCase):
 
+    def test_sortArrayByParity(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.sortArrayByParity([3,1,2,4]), [4,2,1,3])
+
     def test_replaceElements(self):
         s = problems.Arrays.Solution()
         self.assertEqual(s.replaceElements([17,18,5,4,6,1]), [18,6,6,6,1,-1])

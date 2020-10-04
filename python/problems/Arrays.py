@@ -3,6 +3,20 @@ from collections import defaultdict
 
 class Solution:
 
+    def sortArrayByParity(self, A: List[int]) -> List[int]:
+        i = 0 # left pointer for even numbers
+        j = len(A) - 1 # right pointer for odd numbers
+        while i < j:
+            while i < j and A[i] % 2 == 0: i += 1 # skip all even numbers
+            while i < j and A[j] % 2 == 1: j -= 1 # skip all odd numbers
+            
+            if i < j:
+                t = A[i]
+                A[i] = A[j]
+                A[j] = t
+        
+        return A        
+
     def replaceElements(self, arr: List[int]) -> List[int]:
         if len(arr) == 0: return arr
         if len(arr) == 1:
