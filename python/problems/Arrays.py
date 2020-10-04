@@ -3,6 +3,21 @@ from collections import defaultdict
 
 class Solution:
 
+    def validMountainArray(self, A: List[int]) -> bool:
+        if not A: return False
+        if len(A) < 3: return False
+
+        i = 0
+        while i < len(A) - 1 and A[i] < A[i + 1]: i +=1 # climb the left slope
+        if i == 0: return False # there was no climb at all - this is not mountain
+
+        j = len(A) - 1
+        while j > 0 and A[j] < A[j - 1]: j -=1 # climb the right slope
+        if j == len(A) - 1: return False # there was no climb at all - this is not mountain
+
+        # the peak is the one
+        return i == j
+
     def checkIfExist(self, arr: List[int]) -> bool:
         if not arr: return False
 

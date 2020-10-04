@@ -4,6 +4,16 @@ import python.problems as problems
 
 class Arrays(unittest.TestCase):
 
+    def test_validMountainArray(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.validMountainArray([1,2]), False)
+        self.assertEqual(s.validMountainArray([1]), False)
+        self.assertEqual(s.validMountainArray([]), False)
+        self.assertEqual(s.validMountainArray([3,5,5]), False)
+        self.assertEqual(s.validMountainArray([1,2,1,0]), True)
+        self.assertEqual(s.validMountainArray([1,2,2,1]), False)
+        self.assertEqual(s.validMountainArray([0,3,2,1]), True)
+
     def test_checkIfExist(self):
         s = problems.Arrays.Solution()
         self.assertEqual(s.checkIfExist([10,2,5,3]), True)
