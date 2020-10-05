@@ -4,6 +4,13 @@ import python.problems as problems
 
 class Arrays(unittest.TestCase):
 
+    def test_thirdMax(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.thirdMax([1,2,3]), 1)
+        self.assertEqual(s.thirdMax([3,2,1]), 1)
+        self.assertEqual(s.thirdMax([1,2]), 2)
+        self.assertEqual(s.thirdMax([2,2,3,1]), 1)
+
     def test_heightChecker(self):
         s = problems.Arrays.Solution()
         self.assertEqual(s.heightChecker([1,1,4,2,1,3]), 3)

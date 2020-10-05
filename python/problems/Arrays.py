@@ -3,6 +3,20 @@ from collections import defaultdict
 
 class Solution:
 
+    def thirdMax(self, nums: List[int]) -> int:
+        m1 = max(nums) # O(n)
+        
+        f = list(filter(lambda x: x != m1, nums))
+        if not f: return m1
+        m2 = max(f) # O(n)
+        
+        f = list(filter(lambda x: x != m1 and x != m2, nums))
+        if not f: return m1
+        m3 = max(f)
+        
+        return m3
+
+
     def heightChecker(self, heights: List[int]) -> int:
         counter = 0
         h = sorted(heights)
