@@ -3,6 +3,10 @@ from typing import List
 import python.problems as problems
 
 class Arrays(unittest.TestCase):
+    def test_findDisappearedNumbers(self):
+        s = problems.Arrays.Solution()
+        #self.assertEqual(s.findDisappearedNumbers([4,3,2,7,8,2,3,1]), [5,6])
+        self.assertEqual(s.findDisappearedNumbers([4,3,2,7,7,2,3,1]), [5,6,8])
 
     def test_thirdMax(self):
         s = problems.Arrays.Solution()

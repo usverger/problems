@@ -3,6 +3,18 @@ from collections import defaultdict
 
 class Solution:
 
+    def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+        for i in range(len(nums)):
+            if nums[i] == 0: continue
+            
+            index = nums[i] - 1
+            while nums[index] != 0:
+                newIndex = nums[index] - 1
+                nums[index] = 0
+                index = newIndex
+                
+        return [i + 1 for i in range(len(nums)) if nums[i] != 0]
+
     def thirdMax(self, nums: List[int]) -> int:
         m1 = max(nums) # O(n)
         
