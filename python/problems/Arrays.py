@@ -3,6 +3,14 @@ from collections import defaultdict
 
 class Solution:
 
+    def heightChecker(self, heights: List[int]) -> int:
+        counter = 0
+        h = sorted(heights)
+        for i in range(len(heights)):
+            if heights[i] != h[i]:
+                counter += 1
+        return counter
+
     def sortArrayByParity(self, A: List[int]) -> List[int]:
         i = 0 # left pointer for even numbers
         j = len(A) - 1 # right pointer for odd numbers

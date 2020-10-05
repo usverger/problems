@@ -4,6 +4,12 @@ import python.problems as problems
 
 class Arrays(unittest.TestCase):
 
+    def test_heightChecker(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.heightChecker([1,1,4,2,1,3]), 3)
+        self.assertEqual(s.heightChecker([5,1,2,3,4]), 5)
+        self.assertEqual(s.heightChecker([1,2,3,4,5]), 0)
+
     def test_sortArrayByParity(self):
         s = problems.Arrays.Solution()
         self.assertEqual(s.sortArrayByParity([3,1,2,4]), [4,2,1,3])
