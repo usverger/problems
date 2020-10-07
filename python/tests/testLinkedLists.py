@@ -4,6 +4,20 @@ import python.problems as problems
 
 class LinkedLists(unittest.TestCase):
 
+    def test_hasCycle(self):
+        l = problems.DesignLinkedList.MyLinkedList()
+        l.addAtTail(3)
+        l.addAtTail(2)
+        l.addAtTail(0)
+        l.addAtTail(-4)
+        l.getNode(3).next = l.getNode(1)
+        self.assertEqual(l.hasCycle(l.head), True)
+
+        l = problems.DesignLinkedList.MyLinkedList()
+        l.addAtTail(1)
+        l.addAtTail(2)
+        self.assertEqual(l.hasCycle(l.head), False)
+
     def test_designLinkedList(self):
         l = problems.DesignLinkedList.MyLinkedList()
         
