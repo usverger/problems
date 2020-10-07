@@ -76,12 +76,37 @@ class MyLinkedList:
         if not head: return False
         if not head.next: return False
 
-        sp = head
+        sp = head.next
         fp = head.next.next
         while sp and fp and sp != fp:
+            if not sp: return False
+            if not fp or not fp.next: return False
             sp = sp.next
-            fp = fp.next.next if fp.next else None
-            
-        if sp and fp and sp == fp: return True
-        return False
-        
+            fp = fp.next.next
+
+        if not sp: return False
+        if not fp: return False
+
+        return True
+
+    def detectCycle(self, head: ListNode) -> ListNode:
+        if not head: return None
+        if not head.next: return None
+
+        sp = head.next
+        fp = head.next.next
+        while sp and fp and sp != fp:
+            if not sp: return None
+            if not fp or not fp.next: return None
+            sp = sp.next
+            fp = fp.next.next
+
+        if not sp: return None
+        if not fp: return None
+
+        # now move the slow pointer from the beginning and move the fast pointer in the cycle
+        sp = head
+        while sp != fp:
+            sp = sp.next
+            fp = fp.next
+        return sp
