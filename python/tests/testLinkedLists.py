@@ -4,6 +4,30 @@ import python.problems as problems
 
 class LinkedLists(unittest.TestCase):
 
+    def test_removeNthFromEnd(self):
+        l = problems.DesignLinkedList.MyLinkedList()
+        l.addAtTail(4)
+        l.addAtTail(1)
+        l.addAtTail(8)
+        l.addAtTail(4)
+        l.addAtTail(5)     
+        l.removeNthFromEnd(2)
+        self.assertEqual(l.get(2), 8)
+        self.assertEqual(l.get(3), 5)
+
+        l = problems.DesignLinkedList.MyLinkedList()
+        l.addAtTail(4)
+        l.addAtTail(1)  
+        l.removeNthFromEnd(3)
+        self.assertEqual(l.get(0), 4)
+        self.assertEqual(l.get(1), 1)
+
+        l.removeNthFromEnd(2)
+        self.assertEqual(l.get(0), 1)
+
+        l.removeNthFromEnd(1)
+        self.assertEqual(l.get(0), -1)
+
     def test_getIntersectionNode(self):
         l = problems.DesignLinkedList.MyLinkedList()
         l.addAtTail(4)

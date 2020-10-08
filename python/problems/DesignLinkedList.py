@@ -147,3 +147,30 @@ class MyLinkedList:
             b = b.next
             
         return a
+
+    def removeNthFromEnd(self, n: int) -> ListNode:
+        if n <= 0: return self.head
+
+        # move first pointer n elements forward
+        i = self.head
+        while n > 0:
+            if not i: return self.head
+            i = i.next
+            n -= 1
+        
+        # corner case when we need to delete the head
+        if i == None:
+            self.head = self.head.next
+            return self.head
+        
+        # second pointer is n elements behind
+        j = self.head
+        prevj = None
+        while i:
+            i = i.next
+            prevj = j
+            j = j.next
+        
+        # now j is subject to removal
+        prevj.next = j.next
+        return self.head
