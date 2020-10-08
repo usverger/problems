@@ -4,6 +4,33 @@ import python.problems as problems
 
 class LinkedLists(unittest.TestCase):
 
+    def test_getIntersectionNode(self):
+        l = problems.DesignLinkedList.MyLinkedList()
+        l.addAtTail(4)
+        l.addAtTail(1)
+        l.addAtTail(8)
+        l.addAtTail(4)
+        l.addAtTail(5)
+
+        l2 = problems.DesignLinkedList.MyLinkedList()
+        l2.addAtTail(5)
+        l2.addAtTail(6)
+        l2.addAtTail(1)
+        l2.getNode(2).next = l.getNode(2)
+
+        self.assertEqual(l.getIntersectionNode(l.head, l2.head), l.getNode(2))
+
+    def test_getLength(self):
+        l = problems.DesignLinkedList.MyLinkedList()
+        l.addAtTail(3)
+        l.addAtTail(2)
+        l.addAtTail(0)
+        l.addAtTail(-4)
+        self.assertEqual(l.getLength(l.head), 4)
+
+        l = problems.DesignLinkedList.MyLinkedList()
+        self.assertEqual(l.getLength(l.head), 0)
+
     def test_detectCycle(self):
         l = problems.DesignLinkedList.MyLinkedList()
         l.addAtTail(3)

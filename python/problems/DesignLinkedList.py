@@ -110,3 +110,40 @@ class MyLinkedList:
             sp = sp.next
             fp = fp.next
         return sp
+
+    def getLength(self, head: ListNode) -> int:
+        c = head
+        counter = 0
+        while c:
+            c = c.next
+            counter += 1
+
+        return counter
+
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        if not headA or not headB: return None
+        
+        # find out which one is longer
+        lA = self.getLength(headA)
+        lB = self.getLength(headB)
+        
+        if lA > lB:
+            a = headA
+            b = headB
+        else:
+            a = headB
+            b = headA
+            
+        # move the pointer on the longer one to make the same length
+        i = 0
+        while i < abs(lA - lB):
+            a = a.next
+            i += 1
+            
+        # now move both lists until meet (or not meet)
+        while a != b:
+            if not a or not b: return None
+            a = a.next
+            b = b.next
+            
+        return a
