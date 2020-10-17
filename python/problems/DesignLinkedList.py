@@ -219,3 +219,20 @@ class MyLinkedList:
                 if node.next.next == None:
                     node.next = None
             node = node.next
+
+    def oddEvenList(self) -> ListNode:
+        if not self.head or not self.head.next: return self.head
+
+        oddTail = self.head
+        evenHead = self.head.next
+        evenTail = evenHead
+
+        while evenTail and evenTail.next:
+            oddTail.next = oddTail.next.next
+            evenTail.next = evenTail.next.next
+            oddTail = oddTail.next
+            evenTail = evenTail.next
+            
+        oddTail.next = evenHead
+        
+        return self.head

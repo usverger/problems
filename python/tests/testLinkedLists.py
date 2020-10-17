@@ -4,6 +4,20 @@ import python.problems as problems
 
 class LinkedLists(unittest.TestCase):
 
+    def test_oddEvenList(self):
+        l = problems.DesignLinkedList.MyLinkedList()
+        l.addAtTail(1)
+        l.addAtTail(2)
+        l.addAtTail(3)
+        l.addAtTail(4)
+        l.addAtTail(5)
+        l.oddEvenList()
+        self.assertEqual(l.get(0), 1)
+        self.assertEqual(l.get(1), 3)
+        self.assertEqual(l.get(2), 5)
+        self.assertEqual(l.get(3), 2)
+        self.assertEqual(l.get(4), 4) 
+
     def test_deleteNode(self):
         l = problems.DesignLinkedList.MyLinkedList()
         l.addAtTail(1)
