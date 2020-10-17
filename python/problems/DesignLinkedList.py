@@ -174,3 +174,18 @@ class MyLinkedList:
         # now j is subject to removal
         prevj.next = j.next
         return self.head
+
+    def reverseList(self) -> ListNode:
+        if not self.head: return self.head
+        if not self.head.next: return self.head
+        
+        cur = self.head.next
+        prev = self.head
+        while cur:
+            temp = cur.next
+            cur.next = self.head
+            self.head = cur
+            prev.next = temp
+            cur = temp
+            
+        return self.head       

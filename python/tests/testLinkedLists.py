@@ -4,6 +4,20 @@ import python.problems as problems
 
 class LinkedLists(unittest.TestCase):
 
+    def test_reverseList(self):
+        l = problems.DesignLinkedList.MyLinkedList()
+        l.addAtTail(1)
+        l.addAtTail(2)
+        l.addAtTail(3)
+        l.addAtTail(4)
+        l.addAtTail(5)
+        l.reverseList()
+        self.assertEqual(l.get(0), 5)
+        self.assertEqual(l.get(1), 4)
+        self.assertEqual(l.get(2), 3)
+        self.assertEqual(l.get(3), 2)
+        self.assertEqual(l.get(4), 1)
+
     def test_removeNthFromEnd(self):
         l = problems.DesignLinkedList.MyLinkedList()
         l.addAtTail(4)
