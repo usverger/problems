@@ -4,6 +4,19 @@ import python.problems as problems
 
 class LinkedLists(unittest.TestCase):
 
+    def test_deleteNode(self):
+        l = problems.DesignLinkedList.MyLinkedList()
+        l.addAtTail(1)
+        l.addAtTail(2)
+        l.addAtTail(3)
+        l.addAtTail(4)
+        l.addAtTail(5)
+        l.deleteNode(l.getNode(3))
+        self.assertEqual(l.get(0), 1)
+        self.assertEqual(l.get(1), 2)
+        self.assertEqual(l.get(2), 3)
+        self.assertEqual(l.get(3), 5)
+
     def test_removeElements(self):
         l = problems.DesignLinkedList.MyLinkedList()
         l.addAtTail(6)

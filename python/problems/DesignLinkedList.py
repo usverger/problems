@@ -206,3 +206,16 @@ class MyLinkedList:
             fast = fast.next
             
         return self.head
+
+    def deleteNode(self, node: ListNode):
+        """
+        :type node: ListNode
+        :rtype: void Do not return anything, modify node in-place instead.
+        """
+        # this is silly, the only solution I can think of is adjusting the values of nodes, which looks pretty much like a hack
+        while node:
+            if node.next:
+                node.val = node.next.val
+                if node.next.next == None:
+                    node.next = None
+            node = node.next
