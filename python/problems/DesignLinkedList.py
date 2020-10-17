@@ -1,15 +1,16 @@
+from typing import List
+
 class ListNode:
     def __init__(self, val: int = 0, next: "ListNode" = None):
         self.val = val
         self.next = next
         
 class MyLinkedList:
-    def __init__(self):
-        """
-        Initialize your data structure here.
-        """
+    def __init__(self, values: List[int] = []):
         self.head = None
-        
+        for v in values:
+            self.addAtTail(v)
+
     def getNode(self, index: int) -> ListNode:
         if index < 0: return None
         if self.head is None: return None
@@ -269,4 +270,3 @@ class MyLinkedList:
         
         return True
 
-        
