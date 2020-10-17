@@ -3,6 +3,14 @@ from typing import List
 import python.problems as problems
 
 class Arrays(unittest.TestCase):
+
+    def test_partition(self):
+        s = problems.Arrays.Solution()
+        arr = [12,5,3,19,7,8,2]
+        pos = s.partition(arr, 0, 4)
+        self.assertEqual(pos, 2)
+        self.assertEqual(arr, [5,3,7,19,12,8,2])
+
     def test_findDisappearedNumbers(self):
         s = problems.Arrays.Solution()
         #self.assertEqual(s.findDisappearedNumbers([4,3,2,7,8,2,3,1]), [5,6])

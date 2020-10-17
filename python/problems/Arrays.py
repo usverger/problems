@@ -3,6 +3,20 @@ from collections import defaultdict
 
 class Solution:
 
+    def partition(self, nums: List[int], l: int, r: int) -> int:
+        pivot = nums[r]
+        slow = l
+        for fast in range(l,r):
+            if nums[fast] < pivot:
+                temp = nums[fast]
+                nums[fast] = nums[slow]
+                nums[slow] = temp
+                slow += 1
+        nums[r] = nums[slow]
+        nums[slow] = pivot
+        return slow
+
+
     def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
         for i in range(len(nums)):
             if nums[i] == 0: continue
