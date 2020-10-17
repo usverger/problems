@@ -4,6 +4,27 @@ import python.problems as problems
 
 class LinkedLists(unittest.TestCase):
 
+    def test_isPalindrome(self):
+        l = problems.DesignLinkedList.MyLinkedList()
+        l.addAtTail(1)
+        l.addAtTail(2)
+        self.assertEqual(l.isPalindrome(), False)
+
+        l = problems.DesignLinkedList.MyLinkedList()
+        l.addAtTail(1)
+        l.addAtTail(2)
+        l.addAtTail(2)
+        l.addAtTail(1)
+        self.assertEqual(l.isPalindrome(), True)
+
+        l = problems.DesignLinkedList.MyLinkedList()
+        l.addAtTail(1)
+        l.addAtTail(2)
+        l.addAtTail(5)
+        l.addAtTail(2)
+        l.addAtTail(1)
+        self.assertEqual(l.isPalindrome(), True)
+
     def test_oddEvenList(self):
         l = problems.DesignLinkedList.MyLinkedList()
         l.addAtTail(1)

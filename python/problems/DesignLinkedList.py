@@ -236,3 +236,37 @@ class MyLinkedList:
         oddTail.next = evenHead
         
         return self.head
+
+    def isPalindrome(self) -> bool:
+        if not self.head or not self.head.next: return True
+        dummy = ListNode(0, self.head)
+        prev = dummy
+        slow = self.head # advance one to get the middle one
+        fast = self.head # advance two to get to the end
+        
+        while fast and fast.next:
+            fast = fast.next.next # advance the fast
+            
+            # advance the slow while reversing
+            temp = slow.next
+            slow.next = self.head
+            self.head = slow
+            prev.next = temp
+            slow = temp
+
+        # advance slow once more if there is odd number of elements
+        if fast:
+            slow = slow.next
+            
+        # now the slow is the middle, compare the second part with the first
+        cur = self.head
+        while slow:
+            if cur.val != slow.val:
+                return False
+            
+            slow = slow.next
+            cur = cur.next
+        
+        return True
+
+        
