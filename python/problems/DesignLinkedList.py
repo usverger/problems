@@ -188,4 +188,21 @@ class MyLinkedList:
             prev.next = temp
             cur = temp
             
-        return self.head       
+        return self.head
+
+    def removeElements(self, val: int) -> ListNode:
+        dummy = ListNode(0, self.head)
+        slow = dummy
+        fast = self.head
+        
+        while fast:
+            if fast.val == val: # remove the value, special attn to head
+                slow.next = fast.next
+                if fast == self.head:
+                    self.head = self.head.next
+            else:
+                slow = fast
+            
+            fast = fast.next
+            
+        return self.head

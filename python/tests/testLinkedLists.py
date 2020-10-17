@@ -4,6 +4,23 @@ import python.problems as problems
 
 class LinkedLists(unittest.TestCase):
 
+    def test_removeElements(self):
+        l = problems.DesignLinkedList.MyLinkedList()
+        l.addAtTail(6)
+        l.addAtTail(1)
+        l.addAtTail(2)
+        l.addAtTail(6)
+        l.addAtTail(3)
+        l.addAtTail(4)
+        l.addAtTail(5)
+        l.addAtTail(6)
+        l.removeElements(6)
+        self.assertEqual(l.get(0), 1)
+        self.assertEqual(l.get(1), 2)
+        self.assertEqual(l.get(2), 3)
+        self.assertEqual(l.get(3), 4)
+        self.assertEqual(l.get(4), 5)
+
     def test_reverseList(self):
         l = problems.DesignLinkedList.MyLinkedList()
         l.addAtTail(1)
