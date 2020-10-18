@@ -4,6 +4,11 @@ import python.problems as problems
 
 class Arrays(unittest.TestCase):
 
+    def test_maxProfit(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.maxProfit([7,1,5,3,6,4]), 7)
+        self.assertEqual(s.maxProfit([1,2,3,4,5]), 4)
+
     def test_partition(self):
         s = problems.Arrays.Solution()
         arr = [12,5,3,19,7,8,2]

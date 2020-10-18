@@ -3,6 +3,17 @@ from collections import defaultdict
 
 class Solution:
 
+    def maxProfit(self, prices: List[int]) -> int:
+        n = len(prices)
+        if len(prices) <= 1: return 0
+        
+        profit = 0
+        for t in range(1, n):
+            if prices[t] > prices[t - 1]:
+                profit += (prices[t] - prices[t - 1])
+            
+        return profit
+
     def partition(self, nums: List[int], l: int, r: int) -> int:
         pivot = nums[r]
         slow = l
@@ -15,7 +26,6 @@ class Solution:
         nums[r] = nums[slow]
         nums[slow] = pivot
         return slow
-
 
     def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
         for i in range(len(nums)):
@@ -41,7 +51,6 @@ class Solution:
         m3 = max(f)
         
         return m3
-
 
     def heightChecker(self, heights: List[int]) -> int:
         counter = 0
