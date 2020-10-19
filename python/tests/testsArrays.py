@@ -4,6 +4,17 @@ import python.problems as problems
 
 class Arrays(unittest.TestCase):
 
+    def test_containsNearbyDuplicate(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.containsNearbyDuplicate([1,2,3,1,2,3], 3), True)
+        self.assertEqual(s.containsNearbyDuplicate([1,2,3,1,2,3], 2), False)
+
+    def test_containsDuplicate(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.containsDuplicate([7,1,5,3,6,4]), False)
+        self.assertEqual(s.containsDuplicate([1,2,3,1]), True)
+        self.assertEqual(s.containsDuplicate([1,1,1,2,3,3,4]), True)
+
     def test_maxProfit(self):
         s = problems.Arrays.Solution()
         self.assertEqual(s.maxProfit([7,1,5,3,6,4]), 7)

@@ -3,6 +3,30 @@ from collections import defaultdict
 
 class Solution:
 
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+        if nums == None or len(nums) <= 1: return False
+        
+        d = {}        
+        right = 0
+        
+        while right < len(nums):
+            if nums[right] in d:
+                return True
+
+            d[nums[right]] = right
+            right += 1
+            if right - k > 0:
+                d.pop(nums[right - k - 1])
+                
+        return False
+
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        s = list(sorted(nums))
+        for i in range(1, len(s)):
+            if s[i] == s[i-1]:
+                return True
+        return False
+
     def maxProfit(self, prices: List[int]) -> int:
         n = len(prices)
         if len(prices) <= 1: return 0
