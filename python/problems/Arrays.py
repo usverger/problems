@@ -513,15 +513,22 @@ class Solution:
 
     def intersect_SortedSearch(self, nums1: List[int], nums2: List[int]) -> List[int]:
         # following up Naive implementation
-        # sort num2, then do binary search over num2 instead of linear search
-        # O(n*logn) + O(n*logn*n)
+        # sort both, the do two pointers
         result = []
+        nums1.sort()
         nums2.sort()
-        for x in nums1:
-            index = bisect.bisect_left(nums2, x)
-            if index != len(nums2) and nums2[index] == x:
-                nums2.remove(x)
-                result.append(x)
+        i = 0
+        j = 0
+        while i < len(nums1) and j < len(nums2):
+            if nums1[i] == nums2[j]:
+                result.append(nums1[i])
+                i += 1
+                j += 1
+            elif nums1[i] < nums2[j]:
+                i += 1
+            else:
+                j += 1
+
         return result
 
     def intersect_Counters(self, nums1: List[int], nums2: List[int]) -> List[int]:
