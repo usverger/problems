@@ -1,8 +1,18 @@
 import unittest
+import bisect
 from typing import List
 import python.problems as problems
 
 class Arrays(unittest.TestCase):
+
+    def test_intersect(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.intersect_Naive([1,2,2,1], [2,2]), [2,2])
+        self.assertEqual(s.intersect_Naive([4,9,5], [9,4,9,8,4]), [4,9]) 
+        self.assertEqual(s.intersect_SortedSearch([1,2,2,1], [2,2]), [2,2])
+        self.assertEqual(s.intersect_SortedSearch([4,9,5], [9,4,9,8,4]), [4,9])
+        self.assertEqual(s.intersect_Counters([1,2,2,1], [2,2]), [2,2])
+        self.assertEqual(s.intersect_Counters([4,9,5], [9,4,9,8,4]), [4,9]) 
 
     def test_containsNearbyDuplicate(self):
         s = problems.Arrays.Solution()

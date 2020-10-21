@@ -1,5 +1,7 @@
 from typing import List
+import bisect
 from collections import defaultdict
+from collections import Counter
 
 class Solution:
 
@@ -496,10 +498,42 @@ class Solution:
 
         return result
                 
-            
+    def intersect_Naive(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        # the naive - take one, look for each element in the second one
+        # add the located number to the result array, removing it from the second
+        # O(n^3) because removal also takes O(n)
+        result = []
+        for x in nums1:
+            for y in nums2:
+                if x == y:
+                    nums2.remove(y)
+                    result.append(x)
+                    break
+        return result
+
+    def intersect_SortedSearch(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        # following up Naive implementation
+        # sort num2, then do binary search over num2 instead of linear search
+        # O(n*logn) + O(n*logn*n)
+        result = []
+        nums2.sort()
+        for x in nums1:
+            index = bisect.bisect_left(nums2, x)
+            if index != len(nums2) and nums2[index] == x:
+                nums2.remove(x)
+                result.append(x)
+        return result
+
+    def intersect_Counters(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        # instead of searching and removing, calculate the counts and reduce the counters
+        result = []
+        c = Counter(nums2)
+
+        for x in nums1:
+            if c[x] > 0:
+                c[x] -= 1
+                result.append(x)
+        return result
+                
                 
         
-                
-                
-            
-
