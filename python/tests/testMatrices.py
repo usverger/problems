@@ -4,7 +4,7 @@ import python.problems as problems
 
 class Matrices(unittest.TestCase):
 
-    def test_validSudoky(self):
+    def test_validSudoku(self):
         s = problems.Matrices.Solution()
         self.assertEqual(s.isValidSudoku([["5","3",".",".","7",".",".",".","."]
 ,["6",".",".","1","9","5",".",".","."]

@@ -6,18 +6,18 @@ class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         
         # check rows
-        for i in range(len(board)):
+        for row in board:
             d = {}
-            for j in range(len(board)):
-                if board[i][j] in d: return False
-                if board[i][j] != ".": d[board[i][j]] = board[i][j]
+            for j in range(len(row)):
+                if row[j] in d: return False
+                if row[j] != ".": d[row[j]] = row[j]
         
         # check columns
-        for j in range(len(board)):
+        for column in zip(*board):
             d = {}
-            for i in range(len(board)):
-                if board[i][j] in d: return False
-                if board[i][j] != ".": d[board[i][j]] = board[i][j]
+            for j in range(len(column)):
+                if column[j] in d: return False
+                if column[j] != ".": d[column[j]] = column[j]
                     
         # check squares
         for i in range(len(board)):
