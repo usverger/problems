@@ -3,6 +3,34 @@ from collections import defaultdict
 
 class Solution:
 
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        
+        # check rows
+        for i in range(len(board)):
+            d = {}
+            for j in range(len(board)):
+                if board[i][j] in d: return False
+                if board[i][j] != ".": d[board[i][j]] = board[i][j]
+        
+        # check columns
+        for j in range(len(board)):
+            d = {}
+            for i in range(len(board)):
+                if board[i][j] in d: return False
+                if board[i][j] != ".": d[board[i][j]] = board[i][j]
+                    
+        # check squares
+        for i in range(len(board)):
+            d = {}
+            lefti = (i // 3)*3
+            leftj = (i % 3)*3
+            for x in range(lefti, lefti + 3):
+                for y in range(leftj, leftj + 3):
+                    if board[x][y] in d:
+                        return False
+                    if board[x][y] != ".": d[board[x][y]] = board[x][y]
+        return True
+
     def rotate(self, matrix: List[List[int]]) -> List[List[int]]:            
         n = len(matrix)
         for i in range(n // 2): # iterate over the square radiuses
