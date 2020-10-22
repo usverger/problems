@@ -3,6 +3,17 @@ from collections import defaultdict
 
 class Solution:
 
+    def rotate(self, matrix: List[List[int]]) -> List[List[int]]:            
+        n = len(matrix)
+        for i in range(n // 2): # iterate over the square radiuses
+            for j in range(i, n - i - 1): # rotate each element of one side except the last one
+                temp = matrix[i][j]
+                matrix[i][j] = matrix[n-1-j][i]
+                matrix[n-1-j][i] = matrix[n-1-i][n-1-j]
+                matrix[n-1-i][n-1-j] = matrix[j][n-1-i]
+                matrix[j][n-1-i] = temp
+        return matrix
+
     def pascalTriangle_WithPaddedArrays(self, numRows: int) -> List[List[int]]:
         if numRows == 0: return []
         result = [[1]]
