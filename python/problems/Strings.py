@@ -5,6 +5,40 @@ from collections import Counter
 
 class Solution:
 
+    def myAtoi(self, s: str) -> int:
+        if not s: return 0
+        i = 0
+        n = len(s)
+
+        # skip all spaces, test if it was all just spaces
+        while i < n and s[i] == ' ': i += 1
+        if i == n: return 0
+
+        # parse the sign if any
+        negative = 1
+        if s[i] == '-':
+            i += 1
+            negative = -1
+        elif s[i] == '+':
+            i += 1
+        elif not s[i].isnumeric():
+            return 0
+
+        # build the number intil the end of numeric numbers or the string
+        # ignoring the dot?
+        result = 0
+        maxint = 2**31 - 1
+        minint = -2**31
+        while i < n and s[i].isnumeric():
+            if result > maxint // 10 or (result == maxint // 10 and int(s[i]) > maxint % 10):
+                return maxint if negative > 0 else minint
+
+            result = result * 10 + int(s[i])
+            i += 1
+
+        return negative * result
+
+
     def isAnagram(self, s: str, t: str) -> bool:
         if not s and not t: return True
         if len(s) != len(t): return False

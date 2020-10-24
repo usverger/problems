@@ -4,6 +4,16 @@ import python.problems as problems
 
 class Strings(unittest.TestCase):
 
+    def test_myAtoi(self):
+        s = problems.Strings.Solution()
+        self.assertEqual(s.myAtoi(''), 0)
+        self.assertEqual(s.myAtoi('  '), 0)
+        self.assertEqual(s.myAtoi('42'), 42)
+        self.assertEqual(s.myAtoi('   -42'), -42)
+        self.assertEqual(s.myAtoi('   4193 with words'), 4193)
+        self.assertEqual(s.myAtoi('  with words 945'), 0)
+        self.assertEqual(s.myAtoi('2147483648'), 2147483647)
+        self.assertEqual(s.myAtoi('-2147483649'), -2147483648)
 
     def test_isAnagram(self):
         s = problems.Strings.Solution()
