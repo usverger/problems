@@ -1,8 +1,21 @@
 from typing import List
 import string
 from collections import defaultdict
+from collections import Counter
 
 class Solution:
+
+    def isAnagram(self, s: str, t: str) -> bool:
+        if not s and not t: return True
+        if len(s) != len(t): return False
+        
+        c = Counter(s)
+        for x in t:
+            if c[x] == 0:
+                return False
+            c[x] -= 1
+        
+        return True
 
     def isPalindrome(self, s: str) -> bool:
         if not s: return True

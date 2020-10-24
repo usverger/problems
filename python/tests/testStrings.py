@@ -4,6 +4,12 @@ import python.problems as problems
 
 class Strings(unittest.TestCase):
 
+
+    def test_isAnagram(self):
+        s = problems.Strings.Solution()
+        self.assertEqual(s.isAnagram('anagram', 'nagaram'), True)
+        self.assertEqual(s.isAnagram('rat', 'car'), False)
+
     def test_isPalindrome(self):
         s = problems.Strings.Solution()
         self.assertEqual(s.isPalindrome("A man, a plan, a canal: Panama"), True)
