@@ -6,7 +6,7 @@ class ListNode:
         self.next = next
 
 class Solution:
-    
+
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         if not l1: return l2
         if not l2: return l1
@@ -30,11 +30,7 @@ class Solution:
                 r = r.next
                 l2 = l2.next # advance the second list
             
-        if l1:
-            r.next = l1
-        elif l2:
-            r.next = l2
-            
+        r.next = l1 or l2    
         return head
 
 class MyLinkedList:
