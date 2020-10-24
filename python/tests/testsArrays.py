@@ -5,6 +5,15 @@ import python.problems as problems
 
 class Arrays(unittest.TestCase):
 
+    def test_firstBadVersion(self):
+        s = problems.Arrays.Solution()
+        def isBadVersion4(i): return i >= 4
+        def isBadVersion2(i): return i >= 2
+        def isBadVersion1(i): return i >= 1
+        self.assertEqual(s.firstBadVersion(5, isBadVersion4), 4)
+        self.assertEqual(s.firstBadVersion(2, isBadVersion1), 1)
+        self.assertEqual(s.firstBadVersion(2, isBadVersion2), 2)
+
     def test_intersect(self):
         s = problems.Arrays.Solution()
         self.assertEqual(s.intersect_Naive([1,2,2,1], [2,2]), [2,2])

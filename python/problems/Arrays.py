@@ -5,6 +5,18 @@ from collections import Counter
 
 class Solution:
 
+    def firstBadVersion(self, n, isBadVersion):
+        l = 1
+        r = n
+        while l < r:
+            i =  l + (r - l) // 2
+            if isBadVersion(i):
+                r = i
+            else:
+                l = i + 1
+            
+        return l
+
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
         if nums == None or len(nums) <= 1: return False
         
