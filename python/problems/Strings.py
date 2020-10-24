@@ -4,6 +4,23 @@ from collections import defaultdict
 
 class Solution:
 
+    def isPalindrome(self, s: str) -> bool:
+        if not s: return True
+        i = 0
+        j = len(s) - 1
+        while i < j:
+
+            # skip all non-alphanumeric
+            while i < j and not s[i].isalnum(): i += 1
+            while i < j and not s[j].isalnum(): j -= 1
+
+            # upper case are from 65 to 90, lower case 97 to 122
+            if s[i].lower() != s[j].lower():
+                return False
+            i += 1
+            j -= 1
+        return True
+
     def reverseWordsII(self, s: str) -> str:
         
         # in-place reverse from start to end

@@ -4,6 +4,11 @@ import python.problems as problems
 
 class Strings(unittest.TestCase):
 
+    def test_isPalindrome(self):
+        s = problems.Strings.Solution()
+        self.assertEqual(s.isPalindrome("A man, a plan, a canal: Panama"), True)
+        self.assertEqual(s.isPalindrome("race a car"), False)
+
     def test_reverseWordsII(self):
         s = problems.Strings.Solution()
         self.assertEqual(s.reverseWordsII_Naive('Alice does not even like bob'), 'bob like even not does Alice')
