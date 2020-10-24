@@ -5,6 +5,30 @@ from collections import Counter
 
 class Solution:
 
+    def countAndSay(self, n: int) -> str:
+         
+        def say(s: str) -> str:
+            if len(s) == 0: return ''
+            if len(s) == 1: return "1" + s
+            
+            i = 0
+            c = 1
+            res = ''
+            for j in range(1, len(s)):
+                if s[j] == s[i]:
+                    c += 1
+                else:
+                    res = res + str(c) + s[i]
+                    c = 1
+                    i = j
+                    
+            res = res + str(c) + s[i]
+            return res
+        
+        if n == 1: return '1'
+        s = self.countAndSay(n - 1)
+        return say(s)   
+
     def myAtoi(self, s: str) -> int:
         if not s: return 0
         i = 0
@@ -37,7 +61,6 @@ class Solution:
             i += 1
 
         return negative * result
-
 
     def isAnagram(self, s: str, t: str) -> bool:
         if not s and not t: return True

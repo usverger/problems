@@ -4,6 +4,13 @@ import python.problems as problems
 
 class Strings(unittest.TestCase):
 
+    def test_countAndSay(self):
+        s = problems.Strings.Solution()
+        self.assertEqual(s.countAndSay(1), '1')
+        self.assertEqual(s.countAndSay(2), '11')
+        self.assertEqual(s.countAndSay(4), '1211')
+        self.assertEqual(s.countAndSay(5), '111221')
+
     def test_myAtoi(self):
         s = problems.Strings.Solution()
         self.assertEqual(s.myAtoi(''), 0)
