@@ -4,6 +4,14 @@ import python.problems as problems
 
 class LinkedLists(unittest.TestCase):
 
+    def test_mergeTwoLists(self):
+        s = problems.DesignLinkedList.Solution()
+        l1 = problems.DesignLinkedList.MyLinkedList([1,2,4])
+        l2 = problems.DesignLinkedList.MyLinkedList([1,2,3])
+        r = s.mergeTwoLists(l1.head, l2.head)
+        self.assertEqual(r.next.next.next.next.val, 3) 
+        self.assertEqual(r.next.next.next.next.next.val, 4) 
+
     def test_isPalindrome(self):
         l = problems.DesignLinkedList.MyLinkedList([1,2])
         self.assertEqual(l.isPalindrome(), False)
