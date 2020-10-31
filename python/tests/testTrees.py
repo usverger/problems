@@ -4,6 +4,7 @@ import python.problems as problems
 
 class Trees(unittest.TestCase):
 
+
     def test_isValidBST(self):
         s = problems.BinaryTree.Solution()
 
@@ -70,5 +71,19 @@ class Trees(unittest.TestCase):
         r = s.levelOrder(treeNode)
         self.assertEqual(r, [[3],[9,20],[15,7]])
 
+    def test_inOrderTraversal(self):
+        s = problems.BinaryTree.Solution()
 
+        r = s.inorderTraversalRecursive(s.generateTreeNode(None, 0, [1,None,2,None,None,3,None]))
+        self.assertEqual(r, [1,3,2])
+
+        r = s.inorderTraversalRecursive(s.generateTreeNode(None, 0, []))
+        self.assertEqual(r, [])
+
+        r = s.inorderTraversalRecursive(s.generateTreeNode(None, 0, [1,2]))
+        self.assertEqual(r, [2,1])
  
+        r = s.inorderTraversalRecursive(s.generateTreeNode(None, 0, [1,None,2]))
+        self.assertEqual(r, [1,2])
+
+

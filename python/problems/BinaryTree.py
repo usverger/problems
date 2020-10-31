@@ -1,4 +1,5 @@
 from typing import List
+from collections import deque
 
 # Definition for a binary tree node.
 class TreeNode:
@@ -132,6 +133,40 @@ class Solution:
                 q.append((n[0].right, n[1] + 1))
         
         return result
+
+    def inorderTraversalRecursive(self, root: TreeNode) -> List[int]:
+        def helper(root: TreeNode, result: List[int]):
+            if root.left: helper(root.left, result)
+            result.append(root.val)
+            if root.right: helper(root.right, result)
+
+        result = []
+        if not root: return result
+        helper(root, result)
+        return result
+
+    def inorderTraversalIteration(self, root: TreeNode) -> List[int]:
+        if not root: return []
+        result = []
+
+        discovered = set()
+        q = deque([root])
+        while q:
+
+            # get the next candidate
+            node = q.popleft()
+            if node not in discovered:
+                # discover
+                if node.right: q.appendleft(node.right)
+                q.appendleft(node)
+                if node.left: q.appendleft(node.left)
+                discovered.add(node)
+            else:
+                # visit by appending
+                result.append(node.val)
+
+        return result
+
 
     def generateTreeNode(self, root: TreeNode, index: int, values: List[int]):
 
