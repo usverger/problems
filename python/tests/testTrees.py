@@ -71,7 +71,7 @@ class Trees(unittest.TestCase):
         r = s.levelOrder(treeNode)
         self.assertEqual(r, [[3],[9,20],[15,7]])
 
-    def test_inOrderTraversal(self):
+    def test_inOrderTraversalRecursive(self):
         s = problems.BinaryTree.Solution()
 
         r = s.inorderTraversalRecursive(s.generateTreeNode(None, 0, [1,None,2,None,None,3,None]))
@@ -86,4 +86,18 @@ class Trees(unittest.TestCase):
         r = s.inorderTraversalRecursive(s.generateTreeNode(None, 0, [1,None,2]))
         self.assertEqual(r, [1,2])
 
+    def test_inOrderTraversalIteration(self):
+        s = problems.BinaryTree.Solution()
+
+        r = s.inorderTraversalIteration(s.generateTreeNode(None, 0, [1,None,2,None,None,3,None]))
+        self.assertEqual(r, [1,3,2])
+
+        r = s.inorderTraversalIteration(s.generateTreeNode(None, 0, []))
+        self.assertEqual(r, [])
+
+        r = s.inorderTraversalIteration(s.generateTreeNode(None, 0, [1,2]))
+        self.assertEqual(r, [2,1])
+ 
+        r = s.inorderTraversalIteration(s.generateTreeNode(None, 0, [1,None,2]))
+        self.assertEqual(r, [1,2])
 
