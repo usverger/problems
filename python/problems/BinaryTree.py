@@ -9,6 +9,29 @@ class TreeNode:
 
 class Solution:
 
+    def isValidBSTIteration(self, root: TreeNode) -> bool:
+        if not root: return True
+
+        stack = [(root, float('-inf'), float('inf'))]
+        while stack:
+            node, min, max = stack.pop()
+            if node.val <= min or node.val >= max: return False
+            if node.left: stack.append((node.left, min, node.val))
+            if node.right: stack.append((node.right, node.val, max))
+        return True
+
+    def isValidBSTRecursive(self, root: TreeNode) -> bool:
+
+        def isValidBST(root: TreeNode, minimum: int, maximum: int) -> bool:
+            if not root: return True
+            if root.val <= minimum or root.val >= maximum: return False
+
+            if not isValidBST(root.left, minimum, root.val): return False
+            if not isValidBST(root.right, root.val, maximum): return False
+            return True
+        
+        return isValidBST(root, float('-inf'), float('inf'))
+
     def sumRootToLeaf(self, root: TreeNode) -> int:
         totalSum = 0
         stack = [(root, 0)] # first element of the tuple is the node, the second is path value before that node
