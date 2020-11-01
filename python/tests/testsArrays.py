@@ -34,10 +34,30 @@ class Arrays(unittest.TestCase):
         self.assertEqual(s.containsDuplicate([1,2,3,1]), True)
         self.assertEqual(s.containsDuplicate([1,1,1,2,3,3,4]), True)
 
-    def test_maxProfit(self):
+    def test_maxProfitWithFee(self):
         s = problems.Arrays.Solution()
-        self.assertEqual(s.maxProfit([7,1,5,3,6,4]), 7)
-        self.assertEqual(s.maxProfit([1,2,3,4,5]), 4)
+        self.assertEqual(s.maxProfitWithFee([1,3,2,8,4,9], 2), 8)
+        self.assertEqual(s.maxProfitWithFee([1,2,3,4,5], 2), 2)
+        self.assertEqual(s.maxProfitWithFee([7,6,4,3,1], 2), 0)
+        self.assertEqual(s.maxProfitWithFee([7], 2), 0)
+        self.assertEqual(s.maxProfitWithFee([], 2), 0)
+
+    def test_maxProfitOneTrade(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.maxProfitOneTrade([7,1,5,3,6,4]), 5)
+        self.assertEqual(s.maxProfitOneTrade([1,2,3,4,5]), 4)
+        self.assertEqual(s.maxProfitOneTrade([7,6,4,3,1]), 0)
+        self.assertEqual(s.maxProfitOneTrade([6,7]), 1)
+        self.assertEqual(s.maxProfitOneTrade([6]), 0)
+        self.assertEqual(s.maxProfitOneTrade([]), 0)
+
+    def test_maxProfitManyTrades(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.maxProfitManyTrades([7,1,5,3,6,4]), 7)
+        self.assertEqual(s.maxProfitManyTrades([1,2,3,4,5]), 4)
+        self.assertEqual(s.maxProfitManyTrades([7,6,4,3,1]), 0)
+        self.assertEqual(s.maxProfitManyTrades([7]), 0)
+        self.assertEqual(s.maxProfitManyTrades([]), 0)
 
     def test_partition(self):
         s = problems.Arrays.Solution()

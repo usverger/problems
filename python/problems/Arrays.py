@@ -41,7 +41,26 @@ class Solution:
                 return True
         return False
 
-    def maxProfit2(self, prices: List[int]) -> int:
+    def maxProfitWithFee(self, prices: List[int], fee: int) -> int:
+        n = len(prices)
+        if n <= 1: return 0
+
+        # at t0:
+        profitifsell = [0] * n
+        profitifbuy = [0] * n
+        profitifbuy[0] = -prices[0]
+        
+        for i in range(1, n):
+            # on day i we can consider the following options:
+            # if we held something, then we can either hold it or sell it
+            # if we held nothing, then we can either buy something or do nothing
+            profitifsell[i] = max(profitifsell[i - 1], profitifbuy[i - 1] + prices[i] - fee) # either do nothing or sell what we held
+            profitifbuy[i] = max(profitifbuy[i - 1], profitifsell[i - 1] - prices[i])
+            # looks like we get charged only at one side of the trade, this is not obvious from problem statement. Otherwise we need -fee on buying as well
+        
+        return max(profitifsell[n-1], profitifbuy[n-1])
+
+    def maxProfitOneTrade(self, prices: List[int]) -> int:
         minprice = float('inf')
         maxprofit = 0
         for i in range(len(prices)):
@@ -52,16 +71,23 @@ class Solution:
                 
         return maxprofit
 
-    def maxProfit(self, prices: List[int]) -> int:
+    def maxProfitManyTrades(self, prices: List[int]) -> int:
         n = len(prices)
-        if len(prices) <= 1: return 0
+        if n <= 1: return 0
         
-        profit = 0
-        for t in range(1, n):
-            if prices[t] > prices[t - 1]:
-                profit += (prices[t] - prices[t - 1])
-            
-        return profit
+        # at t0:
+        profitifsell = [0] * n
+        profitifbuy = [0] * n
+        profitifbuy[0] = -prices[0]
+        
+        for i in range(1, n):
+            # on day i we can consider the following options:
+            # if we held something, then we can either hold it or sell it
+            # if we held nothing, then we can either buy something or do nothing
+            profitifsell[i] = max(profitifsell[i - 1], profitifbuy[i - 1] + prices[i])
+            profitifbuy[i] = max(profitifbuy[i - 1], profitifsell[i - 1] - prices[i])
+        
+        return max(profitifsell[n-1], profitifbuy[n-1])
 
     def partition(self, nums: List[int], l: int, r: int) -> int:
         pivot = nums[r]
