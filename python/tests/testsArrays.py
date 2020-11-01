@@ -5,6 +5,13 @@ import python.problems as problems
 
 class Arrays(unittest.TestCase):
 
+    def test_maxSubArray(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.maxSubArray_BruteForce([-2,1,-3,4,-1,2,1,-5,4]), 6)
+        self.assertEqual(s.maxSubArray_DP([-2,1,-3,4,-1,2,1,-5,4]), 6)
+        self.assertEqual(s.maxSubArray_BruteForce([-2]), -2)
+        self.assertEqual(s.maxSubArray_DP([-2]), -2)     
+
     def test_firstBadVersion(self):
         s = problems.Arrays.Solution()
         def isBadVersion4(i): return i >= 4

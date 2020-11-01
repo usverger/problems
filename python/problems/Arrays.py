@@ -5,6 +5,22 @@ from collections import Counter
 
 class Solution:
 
+    def maxSubArray_BruteForce(self, nums: List[int]) -> int:
+        # naive brute force
+        maximum = -2 ** 31
+        for l in range(1, len(nums) + 1): # all possible lengths
+            for i in range(len(nums) - l + 1): # all start elements of subarray while length allows
+                maximum = max(sum(nums[i:i+l]), maximum)
+        return maximum
+
+    def maxSubArray_DP(self, nums: List[int]) -> int:
+        maxSum = float('-inf')
+        currentSum = 0
+        for x in nums:
+            currentSum = max(x, currentSum + x)
+            maxSum = max(maxSum, currentSum)
+        return maxSum
+
     def firstBadVersion(self, n, isBadVersion):
         l = 1
         r = n
@@ -61,15 +77,22 @@ class Solution:
         return max(profitifsell[n-1], profitifbuy[n-1])
 
     def maxProfitOneTrade(self, prices: List[int]) -> int:
-        minprice = float('inf')
-        maxprofit = 0
-        for i in range(len(prices)):
-            if prices[i] < minprice:
-                minprice = prices[i]
-            elif prices[i] - minprice > maxprofit:
-                maxprofit = prices[i] - minprice
-                
-        return maxprofit
+        n = len(prices)
+        if n <= 1: return 0
+        
+        # at t0:
+        profitifsell = [0] * n
+        profitifbuy = [0] * n
+        profitifbuy[0] = -prices[0]
+        
+        for i in range(1, n):
+            # on day i we can consider the following options:
+            # if we held something, then we can either hold it or sell it
+            # if we held nothing, then we can either do nothing or buy the stock dumping all accumulated profit
+            profitifsell[i] = max(profitifsell[i - 1], profitifbuy[i - 1] + prices[i])
+            profitifbuy[i] = max(profitifbuy[i - 1], 0 - prices[i])
+
+        return max(profitifsell[n-1], profitifbuy[n-1])
 
     def maxProfitManyTrades(self, prices: List[int]) -> int:
         n = len(prices)
