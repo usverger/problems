@@ -4,6 +4,20 @@ import python.problems as problems
 
 class Trees(unittest.TestCase):
 
+    def test_isSymmetric(self):
+        s = problems.BinaryTree.Solution()
+        treeNode = s.generateTreeNode(None, 0, [1,2,2,3,4,4,3])
+        self.assertEqual(s.isSymmetricRecursive(treeNode), True)
+        self.assertEqual(s.isSymmetricIteration(treeNode), True)
+
+        treeNode = s.generateTreeNode(None, 0, [1,2,2,None,3,None,3])
+        self.assertEqual(s.isSymmetricRecursive(treeNode), False)
+        self.assertEqual(s.isSymmetricIteration(treeNode), False)
+
+        treeNode = s.generateTreeNode(None, 0, [1,2,2,None,3,3,None])
+        self.assertEqual(s.isSymmetricRecursive(treeNode), True)
+        self.assertEqual(s.isSymmetricIteration(treeNode), True)
+
     def test_sortedArrayToBST(self):
         s = problems.BinaryTree.Solution()
         treeNode = s.sortedArrayToBST([-10,-3,0,5,9])

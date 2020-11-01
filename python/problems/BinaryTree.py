@@ -10,6 +10,36 @@ class TreeNode:
 
 class Solution:
 
+    def isSymmetricRecursive(self, root: TreeNode) -> bool:
+        
+        def helper(n1: TreeNode, n2: TreeNode) -> bool:
+            if n1 == None and n2 == None: return True
+            if n1 == None or n2 == None: return False
+            
+            return n1.val == n2.val \
+                and helper(n1.left, n2.right) \
+                and helper(n1.right, n2.left)
+        
+        return helper(root, root)
+
+    def isSymmetricIteration(self, root: TreeNode) -> bool:
+        q = deque()
+        q.append(root)
+        q.append(root)
+
+        while q:
+            n1 = q.popleft()
+            n2 = q.popleft()
+            if n1 == None and n2 == None: continue
+            if n1 == None or n2 == None: return False
+            if n1.val != n2.val: return False
+            q.append(n1.left)
+            q.append(n2.right)
+            q.append(n1.right)
+            q.append(n2.left)
+        
+        return True
+
     def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
         if not nums: return None
         
