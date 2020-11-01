@@ -10,6 +10,21 @@ class TreeNode:
 
 class Solution:
 
+    def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
+        if not nums: return None
+        
+        def helper(nums: List[int], l: int, r: int) -> TreeNode:
+            if r - l == 0: return None
+            
+            mid = (r - l) // 2 + l
+            root = TreeNode(nums[mid])
+            root.left = helper(nums, l, mid)
+            root.right = helper(nums, mid + 1, r)
+            return root
+        
+        node = helper(nums, 0, len(nums))
+        return node
+
     def isValidBSTIteration(self, root: TreeNode) -> bool:
         if not root: return True
 
@@ -167,7 +182,6 @@ class Solution:
 
         return result
 
-
     def generateTreeNode(self, root: TreeNode, index: int, values: List[int]):
 
         # for each generation
@@ -181,4 +195,19 @@ class Solution:
             root.left = self.generateTreeNode(root.left, 2 * index + 1, values)
             root.right = self.generateTreeNode(root.right, 2 * index + 2, values)
         return root
+        
+    def printInLevelOrder(self, root: TreeNode) -> List[int]:
+        result = []
+        q = []
+        q.append(root)
+        while q:            
+            n = q.pop(0)
+            result.append(n.val if n is not None else None)
+            if n is not None:
+                q.append(n.left)
+                q.append(n.right)
+        
+        while not result[-1]: result.pop()
+        return result
+
         

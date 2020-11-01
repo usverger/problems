@@ -4,6 +4,15 @@ import python.problems as problems
 
 class Trees(unittest.TestCase):
 
+    def test_sortedArrayToBST(self):
+        s = problems.BinaryTree.Solution()
+        treeNode = s.sortedArrayToBST([-10,-3,0,5,9])
+        self.assertEqual(s.printInLevelOrder(treeNode), [0,-3,9,-10,None,5])
+
+    def test_printInLevelOrder(self):
+        s = problems.BinaryTree.Solution()
+        treeNode = s.generateTreeNode(None, 0, [3,9,20,None,None,15,7])
+        self.assertEqual(s.printInLevelOrder(treeNode), [3,9,20,None,None,15,7])
 
     def test_isValidBST(self):
         s = problems.BinaryTree.Solution()
