@@ -41,6 +41,17 @@ class Solution:
                 return True
         return False
 
+    def maxProfit2(self, prices: List[int]) -> int:
+        minprice = float('inf')
+        maxprofit = 0
+        for i in range(len(prices)):
+            if prices[i] < minprice:
+                minprice = prices[i]
+            elif prices[i] - minprice > maxprofit:
+                maxprofit = prices[i] - minprice
+                
+        return maxprofit
+
     def maxProfit(self, prices: List[int]) -> int:
         n = len(prices)
         if len(prices) <= 1: return 0
