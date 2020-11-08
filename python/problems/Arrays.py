@@ -5,6 +5,20 @@ from collections import Counter
 
 class Solution:
 
+    def rob(self, nums: List[int]) -> int:
+        n = len(nums)
+        if n < 2: return sum(nums)
+        if n == 2: return max(nums[0], nums[1])
+        
+        profit = [0] * n
+        profit[0] = nums[0]
+        profit[1] = max(nums[0], nums[1])
+        
+        for i in range(2, n):
+            profit[i] = max(profit[i - 1], profit[i - 2] + nums[i])
+            
+        return profit[n - 1]
+
     def maxSubArray_BruteForce(self, nums: List[int]) -> int:
         # naive brute force
         maximum = -2 ** 31

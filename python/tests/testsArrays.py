@@ -5,6 +5,11 @@ import python.problems as problems
 
 class Arrays(unittest.TestCase):
 
+    def test_rob(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.rob([1,2,3,1]), 4)
+        self.assertEqual(s.rob([2,7,9,3,1]), 12)
+
     def test_maxSubArray(self):
         s = problems.Arrays.Solution()
         self.assertEqual(s.maxSubArray_BruteForce([-2,1,-3,4,-1,2,1,-5,4]), 6)
