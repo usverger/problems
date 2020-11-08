@@ -4,6 +4,12 @@ import python.problems as problems
 
 class Other(unittest.TestCase):
 
+    def test_romanToInt(self):
+        s = problems.Other.Solution()
+        self.assertEqual(s.romanToInt('MCMXCIV'), 1994)
+        self.assertEqual(s.romanToInt('LVIII'), 58)
+        self.assertEqual(s.romanToInt('IX'), 9)
+
     def test_fizzBuzz(self):
         s = problems.Other.Solution()
         self.assertEqual(s.fizzBuzz(15), [
