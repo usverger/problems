@@ -4,8 +4,28 @@ import python.problems as problems
 
 class Other(unittest.TestCase):
 
+    def test_fizzBuzz(self):
+        s = problems.Other.Solution()
+        self.assertEqual(s.fizzBuzz(15), [
+    "1",
+    "2",
+    "Fizz",
+    "4",
+    "Buzz",
+    "Fizz",
+    "7",
+    "8",
+    "Fizz",
+    "Buzz",
+    "11",
+    "Fizz",
+    "13",
+    "14",
+    "FizzBuzz"
+])
+
     def test_numWaterBottles(self):
-        s = problems.WaterBottles.Solution()
+        s = problems.Other.Solution()
         self.assertEqual(s.numWaterBottles(3, 2), 5)
         self.assertEqual(s.numWaterBottles(9, 3), 13)
         self.assertEqual(s.numWaterBottles(15, 4), 19)
