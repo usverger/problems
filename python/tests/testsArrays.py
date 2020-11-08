@@ -55,6 +55,11 @@ class Arrays(unittest.TestCase):
         self.assertEqual(s.maxProfitWithFee([7], 2), 0)
         self.assertEqual(s.maxProfitWithFee([], 2), 0)
 
+    def test_maxProfitKTrades(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.maxProfitKTrades(2, [2,4,1]), 2)
+        self.assertEqual(s.maxProfitKTrades(2, [3,2,6,5,0,3]), 7)
+
     def test_maxProfitTwoTrades(self):
         s = problems.Arrays.Solution()
         self.assertEqual(s.maxProfitTwoTrades([3,3,5,0,0,3,1,4]), 6)

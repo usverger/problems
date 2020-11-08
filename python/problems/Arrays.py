@@ -94,6 +94,24 @@ class Solution:
         
         return max(profitifsell[n-1], profitifbuy[n-1])
 
+    def maxProfitKTrades(self, k: int, prices: List[int]) -> int:
+        n = len(prices)
+        if n <= 1: return 0
+        
+        profitifsell = [[0] * (k + 1)] * n
+        profitifbuy = [[0] * (k + 1)] * n
+        
+        for t in range(1, k + 1):
+            profitifbuy[0][t] = -prices[0]
+        
+        for i in range(1, n):
+            for t in range(k, 0, -1):
+                profitifsell[i][t] = max(profitifsell[i - 1][t], profitifbuy[i - 1][t] + prices[i])
+                profitifbuy[i][t] = max(profitifbuy[i - 1][t], profitifsell[i - 1][t - 1] - prices[i])
+
+        return max(profitifsell[n - 1])
+        
+
     def maxProfitTwoTrades(self, prices: List[int]) -> int:
         n = len(prices)
         if n <= 1: return 0
