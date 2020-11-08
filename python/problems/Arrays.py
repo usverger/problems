@@ -94,6 +94,26 @@ class Solution:
         
         return max(profitifsell[n-1], profitifbuy[n-1])
 
+    def maxProfitTwoTrades(self, prices: List[int]) -> int:
+        n = len(prices)
+        if n <= 1: return 0
+        
+        profitifsell2 = [0] * n
+        profitifbuy2 = [0] * n
+        profitifsell1 = [0] * n
+        profitifbuy1 = [0] * n
+        
+        profitifbuy1[0]= -prices[0]
+        profitifbuy2[0]= -prices[0]
+        
+        for i in range(1, n):
+            profitifsell2[i] = max(profitifsell2[i - 1], profitifbuy2[i - 1] + prices[i])
+            profitifbuy2[i] = max(profitifbuy2[i - 1], profitifsell1[i - 1] - prices[i])
+            profitifsell1[i] = max(profitifsell1[i - 1], profitifbuy1[i - 1] + prices[i])
+            profitifbuy1[i] = max(profitifbuy1[i - 1], -prices[i])
+
+        return profitifsell2[n - 1]
+
     def maxProfitOneTrade(self, prices: List[int]) -> int:
         n = len(prices)
         if n <= 1: return 0
@@ -106,10 +126,10 @@ class Solution:
         for i in range(1, n):
             # on day i we can consider the following options:
             # if we held something, then we can either hold it or sell it
-            # if we held nothing, then we can either do nothing or buy the stock dumping all accumulated profit
+            # if we held nothing, then we can either buy something or do nothing
             profitifsell[i] = max(profitifsell[i - 1], profitifbuy[i - 1] + prices[i])
-            profitifbuy[i] = max(profitifbuy[i - 1], 0 - prices[i])
-
+            profitifbuy[i] = max(profitifbuy[i - 1], -prices[i])
+        
         return max(profitifsell[n-1], profitifbuy[n-1])
 
     def maxProfitManyTrades(self, prices: List[int]) -> int:
