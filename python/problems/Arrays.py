@@ -57,6 +57,24 @@ class Solution:
                 return True
         return False
 
+    def maxProfitManyTradesWithCooldown(self, prices: List[int]) -> int:
+        n = len(prices)
+        if n <= 1: return 0
+        
+        # at t0:
+        profitifsell = [0] * n
+        profitifbuy = [0] * n
+        profitifbuy[0] = -prices[0]
+        
+        for i in range(1, n):
+            # on day i we can consider the following options:
+            # if we held something, then we can either hold it or sell it
+            # if we held nothing, then we can either buy something or do nothing
+            profitifsell[i] = max(profitifsell[i - 1], profitifbuy[i - 1] + prices[i])
+            profitifbuy[i] = max(profitifbuy[i - 1], profitifsell[i - 2] - prices[i])
+        
+        return max(profitifsell[n-1], profitifbuy[n-1])
+
     def maxProfitWithFee(self, prices: List[int], fee: int) -> int:
         n = len(prices)
         if n <= 1: return 0

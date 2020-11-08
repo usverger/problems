@@ -41,6 +41,12 @@ class Arrays(unittest.TestCase):
         self.assertEqual(s.containsDuplicate([1,2,3,1]), True)
         self.assertEqual(s.containsDuplicate([1,1,1,2,3,3,4]), True)
 
+    def test_maxProfitManyTradesWithCooldown(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.maxProfitManyTradesWithCooldown([1,2,3,0,2]), 3)
+        self.assertEqual(s.maxProfitManyTradesWithCooldown([7]), 0)
+        self.assertEqual(s.maxProfitManyTradesWithCooldown([]), 0)
+
     def test_maxProfitWithFee(self):
         s = problems.Arrays.Solution()
         self.assertEqual(s.maxProfitWithFee([1,3,2,8,4,9], 2), 8)
