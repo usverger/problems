@@ -684,5 +684,27 @@ class Solution:
                 result.append(x)
         return result
                 
-                
+    def climbStairsMinCost(self, cost: List[int]) -> int:
+        n = len(cost)
+        if n < 2: return sum(cost)
+        
+        total = [0] * n
+        total[0] = cost[0]
+        total[1] = cost[1]
+        
+        for i in range(2, n):
+            total[i] = min(total[i - 1], total[i - 2]) + cost[i]
+        
+        return min(total[n - 1], total[n - 2])
+
+    def climbStairs(self, n: int) -> int:
+        if n == 1: return 1
+        if n == 2: return 2
+        
+        c = [0] * n
+        c[0] = 1
+        c[1] = 2
+        for i in range(2, n):
+            c[i] = c[i - 1] + c[i - 2]
+        return c[n - 1]
         
