@@ -408,6 +408,16 @@ class Solution:
         
         return max(profitifsell[n-1], profitifbuy[n-1])
 
+    def mergeSort(self, nums: List[int]):
+
+        if len(nums) > 1:
+            center = len(nums) // 2
+            a = nums[:center]
+            b = nums[center:]
+            self.mergeSort(a)
+            self.mergeSort(b)
+            self.mergeSortedIntoNew(nums, a, b)
+
     def mergeSorted(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
         k = m + n - 1 # pointer of the new arr
         i = m - 1 # pointer on nums1
@@ -421,6 +431,17 @@ class Solution:
                 j -= 1           
             
             k -= 1
+
+    def mergeSortedIntoNew(self, nums: List[int], a: List[int], b: List[int]) -> None:
+        i = 0
+        j = 0
+        for k in range(0, len(nums)):
+            if (i < len(a) and j < len(b) and a[i] <= b[j]) or j > len(b) - 1:
+                nums[k] = a[i]
+                i += 1
+            elif (i < len(a) and j < len(b) and a[i] > b[j]) or i > len(a) - 1:
+                nums[k] = b[j]
+                j += 1
 
     def minSubArrayLen(self, s: int, nums: List[int]) -> int:
         left = 0

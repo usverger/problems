@@ -102,6 +102,12 @@ class Arrays(unittest.TestCase):
         s.quickSort(arr, 0, len(arr) - 1)
         self.assertEqual(arr, [-1,0,1,2,3,4,5,6,7,8,9,10,11])
 
+    def test_mergeSort(self):
+        s = problems.Arrays.Solution()
+        arr = [8,6,9,3,7,0,1,5,2,4,11,-1,10]
+        s.mergeSort(arr)
+        self.assertEqual(arr, [-1,0,1,2,3,4,5,6,7,8,9,10,11])
+
     def test_findDisappearedNumbers(self):
         s = problems.Arrays.Solution()
         #self.assertEqual(s.findDisappearedNumbers([4,3,2,7,8,2,3,1]), [5,6])
