@@ -107,6 +107,24 @@ class Arrays(unittest.TestCase):
         self.assertEqual(s.thirdMax([3,2,1]), 1)
         self.assertEqual(s.thirdMax([1,2]), 2)
         self.assertEqual(s.thirdMax([2,2,3,1]), 1)
+        self.assertEqual(s.thirdMax([8,6,9,3,7,0,1,5,2,4,11,-1,10]), 9)
+
+    def test_thirdMax2(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.thirdMax2([1,2,3]), 1)
+        self.assertEqual(s.thirdMax2([3,2,1]), 1)
+        self.assertEqual(s.thirdMax2([1,2,2]), 1)
+        self.assertEqual(s.thirdMax2([2,2,3,1]), 2)
+        self.assertEqual(s.thirdMax2([8,6,9,3,7,0,1,5,2,4,11,-1,10]), 9)
+        
+
+    def test_thirdMin(self):
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.thirdMin([1,2,3]), 3)
+        self.assertEqual(s.thirdMin([3,2,1]), 3)
+        self.assertEqual(s.thirdMin([1,2,2]), 2)
+        self.assertEqual(s.thirdMin([2,3,1]), 3)
+        self.assertEqual(s.thirdMin([8,6,9,3,7,0,1,5,2,4,11,-1,10]), 1)
 
     def test_heightChecker(self):
         s = problems.Arrays.Solution()

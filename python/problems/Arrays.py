@@ -1,4 +1,5 @@
 from typing import List
+import sys
 import bisect
 from collections import defaultdict
 from collections import Counter
@@ -125,7 +126,6 @@ class Solution:
 
         return max(profitifsell[n - 1])
         
-
     def maxProfitTwoTrades(self, prices: List[int]) -> int:
         n = len(prices)
         if n <= 1: return 0
@@ -219,6 +219,40 @@ class Solution:
         m3 = max(f)
         
         return m3
+
+    def thirdMax2(self, nums: List[int]) -> int:
+        if not nums: return -sys.maxsize - 1
+        max = -sys.maxsize - 1
+        max2 = -sys.maxsize - 1
+        max3 = -sys.maxsize - 1
+        for i in range(0, len(nums)):
+            if nums[i] > max:
+                max3 = max2
+                max2 = max
+                max = nums[i]
+            elif nums[i] > max2:
+                max3 = max2
+                max2 = nums[i]
+            elif nums[i] > max3:
+                max3 = nums[i]
+        return max3
+
+    def thirdMin(self, nums: List[int]) -> int:
+        if not nums: return sys.maxsize
+        min = sys.maxsize
+        min2 = sys.maxsize
+        min3 = sys.maxsize
+        for i in range(0, len(nums)):
+            if nums[i] < min:
+                min3 = min2
+                min2 = min
+                min = nums[i]
+            elif nums[i] < min2:
+                min3 = min2
+                min2 = nums[i]
+            elif nums[i] < min3:
+                min3 = nums[i]
+        return min3
 
     def heightChecker(self, heights: List[int]) -> int:
         counter = 0
