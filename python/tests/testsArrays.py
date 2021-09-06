@@ -96,6 +96,12 @@ class Arrays(unittest.TestCase):
         self.assertEqual(pos, 2)
         self.assertEqual(arr, [5,3,7,19,12,8,2])
 
+    def test_quickSort(self):
+        s = problems.Arrays.Solution()
+        arr = [8,6,9,3,7,0,1,5,2,4,11,-1,10]
+        s.quickSort(arr, 0, len(arr) - 1)
+        self.assertEqual(arr, [-1,0,1,2,3,4,5,6,7,8,9,10,11])
+
     def test_findDisappearedNumbers(self):
         s = problems.Arrays.Solution()
         #self.assertEqual(s.findDisappearedNumbers([4,3,2,7,8,2,3,1]), [5,6])
@@ -116,7 +122,6 @@ class Arrays(unittest.TestCase):
         self.assertEqual(s.thirdMax2([1,2,2]), 1)
         self.assertEqual(s.thirdMax2([2,2,3,1]), 2)
         self.assertEqual(s.thirdMax2([8,6,9,3,7,0,1,5,2,4,11,-1,10]), 9)
-        
 
     def test_thirdMin(self):
         s = problems.Arrays.Solution()
@@ -125,6 +130,12 @@ class Arrays(unittest.TestCase):
         self.assertEqual(s.thirdMin([1,2,2]), 2)
         self.assertEqual(s.thirdMin([2,3,1]), 3)
         self.assertEqual(s.thirdMin([8,6,9,3,7,0,1,5,2,4,11,-1,10]), 1)
+
+    def test_kSmallest(self):
+        arr = [8,6,9,3,7,0,1,5,2,4,11,-1,10]
+        s = problems.Arrays.Solution()
+        self.assertEqual(s.kSmallest(arr, 0, len(arr) - 1, 3), 1)
+        self.assertEqual(s.kSmallest(arr, 0, len(arr) - 1, 5), 3)
 
     def test_heightChecker(self):
         s = problems.Arrays.Solution()
