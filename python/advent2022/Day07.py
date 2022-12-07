@@ -143,6 +143,46 @@ class Solution:
             for n in root.nodes:
                 self.printTree(n, depth + 1)
 
+    def findPart1(self):
+        dirs = self.findAllDirectories(self.root)
+        sum = 0
+        for n in dirs:
+            if n.size <= 100000:
+                sum += n.size
+            else:
+                sum += 0
+
+        return sum
+
+    def findAllDirectories(self, root: Node) -> List[Node]:
+        dirs = []
+
+        if root.isDirectory:
+            dirs.append(root)
+
+            for n in root.nodes:
+                dirs.extend(self.findAllDirectories(n))
+
+        return dirs
+
+    def findPart2(self):
+        dirs = self.findAllDirectories(self.root)
+        unusedSpace = 70000000 - self.root.size
+        needToFreeup = max(0, 30000000 - unusedSpace)
+
+        # find the smallest dir, where dir.size > needToFreeup
+        
+        sizes = [x.size for x in dirs if x.size > needToFreeup]
+        return min(sizes)
+            
+        
+
+
+        
+
+        
+
+
 
 
 
