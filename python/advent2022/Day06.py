@@ -48,8 +48,43 @@ class Solution:
     def __init__(self):
         pass
 
-    def result(self, input: str, m: int) -> int:
+    def resultOption1(self, input: str, m: int) -> int:
+        if len(input) < m:
+            return None
+
         for i in range(m, len(input)):
             if len(set(input[i-m:i])) == m:
                 return i
+            
+    def resultOption2(self, input: str, m: int) -> int:
+        if len(input) < m:
+            return None
+
+        # initialize first m elements in counters
+        d = {}
+        for i in range(0, m):
+            if not input[i] in d:
+                d[input[i]] = 0
+
+            d[input[i]] += 1
+
+        for i in range(m, len(input)):
+            if len(d) == m:
+                return i
+
+            # remove first
+            if input[i-m] in d:
+                d[input[i-m]] -= 1
+            if d[input[i-m]] == 0:
+                del d[input[i-m]]
+
+            # add last
+            if not input[i] in d:
+                d[input[i]] = 0
+            d[input[i]] += 1
+        
+        return None
+
+
+
             
