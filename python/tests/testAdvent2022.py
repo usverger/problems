@@ -458,3 +458,69 @@ $ ls
         print(result)
         self.assertEqual(474606, result)
 
+    def test_day09_part1(self):
+        text = '''R 4
+U 4
+L 3
+D 1
+R 4
+D 1
+L 5
+R 2'''
+        s = advent2022.Day09.Solution(text.splitlines(), 2)
+        s.execute()
+        result = len(s.trail)
+        print('\n')
+        print(result)
+        self.assertEqual(13, result)
+
+    def test_day09_part1_puzzle(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2022/day09.txt')
+        text = open(filename, 'r')
+        s = advent2022.Day09.Solution(text.read().splitlines(), 2)
+
+        s.execute()
+        result = len(s.trail)
+        print('\n')
+        print(result)
+        self.assertEqual(5902, result)
+
+    def test_day09_part2(self):
+        text = '''R 5
+U 8
+L 8
+D 3
+R 17
+D 10
+L 25
+U 20'''
+        s = advent2022.Day09.Solution(text.splitlines(), 10)
+        s.execute()
+        result = len(s.trail)
+        self.assertEqual(36, result)
+
+        text2 = '''R 4
+U 4
+L 3
+D 1
+R 4
+D 1
+L 5
+R 2'''
+        s = advent2022.Day09.Solution(text2.splitlines(), 10)
+        s.execute()
+        result = len(s.trail)
+        self.assertEqual(1, result)        
+
+    def test_day09_part2_puzzle(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2022/day09.txt')
+        text = open(filename, 'r')
+        s = advent2022.Day09.Solution(text.read().splitlines(), 10)
+
+        s.execute()
+        result = len(s.trail)
+        print('\n')
+        print(result)
+        self.assertEqual(2445, result)
+
+
