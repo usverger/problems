@@ -1,4 +1,6 @@
 {
+    "testExplorer.useNativeTesting": true,
+
     "python.testing.unittestArgs": [
         "-v",
         "-s",
@@ -7,9 +9,8 @@
         "test*.py"
     ],
     "python.testing.pytestEnabled": false,
-    "python.testing.nosetestsEnabled": false,
     "python.testing.unittestEnabled": true,
     "python.pythonPath": "/usr/local/bin/python3",
 
-    "dotnetCoreExplorer.searchpatterns": "**/bin/**/csharp.{dll,exe}"
+    "dotnet-test-explorer.testProjectPath": "./csharp/csharp.csproj"
 }
