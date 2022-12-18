@@ -580,7 +580,7 @@ addx -5'''
         print(result)
         self.assertEqual(13920, result)
 
-    def test_day10_part2(self):
+    def test_day10_part2_1(self):
         filename = os.path.join(os.path.dirname(__file__), 'testAdvent2022/day10-1.txt')
         text = open(filename, 'r')
         s = advent2022.Day10.Solution(text.read().splitlines())
@@ -588,7 +588,7 @@ addx -5'''
         print('\n')
         print(result)
 
-    def test_day10_part2(self):
+    def test_day10_part2_2(self):
         filename = os.path.join(os.path.dirname(__file__), 'testAdvent2022/day10-2.txt')
         text = open(filename, 'r')
         s = advent2022.Day10.Solution(text.read().splitlines())
