@@ -523,4 +523,79 @@ R 2'''
         print(result)
         self.assertEqual(2445, result)
 
+    def test_day10_part1_1(self):
+        text = '''noop
+addx 3
+addx -5'''
+        s = advent2022.Day10.Solution(text.splitlines())
+        s.run(1)
+        self.assertEqual(1, s.x)
+        s.run(1)
+        self.assertEqual(1, s.x)
+        s.run(1)
+        self.assertEqual(4, s.x)
+        s.run(1)
+        self.assertEqual(4, s.x)
+        s.run(1)
+        self.assertEqual(-1, s.x)
+
+    def test_day10_part1_2(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2022/day10-1.txt')
+        text = open(filename, 'r')
+        s = advent2022.Day10.Solution(text.read().splitlines())
+        s.run(19)
+        self.assertEqual(21, s.x)
+        self.assertEqual(20, s.cycle)
+        s.run(40)
+        self.assertEqual(19, s.x)
+        self.assertEqual(60, s.cycle)
+        s.run(40)
+        self.assertEqual(18, s.x)
+        self.assertEqual(100, s.cycle)
+        s.run(40)
+        self.assertEqual(21, s.x)
+        self.assertEqual(140, s.cycle)
+        s.run(40)
+        self.assertEqual(16, s.x)
+        self.assertEqual(180, s.cycle)
+        s.run(40)
+        self.assertEqual(18, s.x)
+        self.assertEqual(220, s.cycle)
+
+    def test_day10_part1_3(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2022/day10-1.txt')
+        text = open(filename, 'r')
+        s = advent2022.Day10.Solution(text.read().splitlines())
+        result = s.part1()
+        print('\n')
+        print(result)
+        self.assertEqual(13140, result)
+        
+    def test_day10_part1_puzzle(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2022/day10-2.txt')
+        text = open(filename, 'r')
+        s = advent2022.Day10.Solution(text.read().splitlines())
+        result = s.part1()
+        print('\n')
+        print(result)
+        self.assertEqual(13920, result)
+
+    def test_day10_part2(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2022/day10-1.txt')
+        text = open(filename, 'r')
+        s = advent2022.Day10.Solution(text.read().splitlines())
+        result = s.part2()
+        print('\n')
+        print(result)
+
+    def test_day10_part2(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2022/day10-2.txt')
+        text = open(filename, 'r')
+        s = advent2022.Day10.Solution(text.read().splitlines())
+        result = s.part2()
+        print('\n')
+        print(result)
+        # EGLHBLFJ
+
+
 
