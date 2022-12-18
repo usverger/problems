@@ -593,9 +593,9 @@ addx -5'''
         text = open(filename, 'r')
         s = advent2022.Day10.Solution(text.read().splitlines())
         result = s.part2()
+        # EGLHBLFJ        
         print('\n')
         print(result)
-        # EGLHBLFJ
 
 
 
