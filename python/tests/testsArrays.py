@@ -108,6 +108,12 @@ class Arrays(unittest.TestCase):
         s.mergeSort(arr)
         self.assertEqual(arr, [-1,0,1,2,3,4,5,6,7,8,9,10,11])
 
+    def test_bubbleSort(self):
+        s = leetcode.Arrays.Solution()
+        arr = [8,6,9,3,7,0,1,5,2,4,11,-1,10,5,2,7,8,0,1,2,4,1,7,23,345,7,2,5,61,-1,6,1,63,12,52,324,62,123,56,3,234,6,23,34,67,7,2,3,67,2]
+        s.bubbleSort(arr)
+        self.assertEqual(arr, [-1,-1,0,0,1,1,1,1,2,2,2,2,2,2,3,3,3,4,4,5,5,5,6,6,6,7,7,7,7,7,8,8,9,10,11,12,23,23,34,52,56,61,62,63,67,67,123,234,324,345])
+
     def test_findDisappearedNumbers(self):
         s = leetcode.Arrays.Solution()
         #self.assertEqual(s.findDisappearedNumbers([4,3,2,7,8,2,3,1]), [5,6])
