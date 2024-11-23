@@ -101,19 +101,19 @@ class Solution:
                 if len(numbers) == 1:
                     break
                 bit_count = {'0': 0, '1': 0}
-                for number in numbers:
-                    bit_count[number[i]] += 1
+                for n in numbers:
+                    bit_count[n[i]] += 1
 
                 if bit_criteria == 'most_common':
                     if bit_count['1'] >= bit_count['0']:
-                        numbers = [number for number in numbers if number[i] == '1']
+                        numbers = [n for n in numbers if n[i] == '1']
                     else:
-                        numbers = [number for number in numbers if number[i] == '0']
+                        numbers = [n for n in numbers if n[i] == '0']
                 elif bit_criteria == 'least_common':
                     if bit_count['0'] <= bit_count['1']:
-                        numbers = [number for number in numbers if number[i] == '0']
+                        numbers = [n for n in numbers if n[i] == '0']
                     else:
-                        numbers = [number for number in numbers if number[i] == '1']
+                        numbers = [n for n in numbers if n[i] == '1']
             return numbers[0]
 
         oxygen_generator_rating = filter_numbers(binary_numbers[:], 'most_common')
