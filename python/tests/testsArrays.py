@@ -346,3 +346,15 @@ class Arrays(unittest.TestCase):
         arr = [0,1]
         s.moveZeroes(arr)
         self.assertEqual(arr, [1,0])
+
+    def test_medianSlidingWindow_WithSorted(self):
+        s = leetcode.Arrays.Solution()
+        self.assertEqual(s.medianSlidingWindow_Sorted([1,3,-1,-3,5,3,6,7], 3), [1,-1,-1,3,5,6])
+        self.assertEqual(s.medianSlidingWindow_Sorted([1,2,3,4,2,3,1,4,2], 3), [2,3,3,3,2,3,2])
+        self.assertEqual(s.medianSlidingWindow_Sorted([1,4,2,3], 4), [2.5])
+
+    def test_medianSlidingWindow_WithNaive(self):
+        s = leetcode.Arrays.Solution()
+        self.assertEqual(s.medianSlidingWindow_Naive([1,3,-1,-3,5,3,6,7], 3), [1,-1,-1,3,5,6])
+        self.assertEqual(s.medianSlidingWindow_Naive([1,2,3,4,2,3,1,4,2], 3), [2,3,3,3,2,3,2])
+        self.assertEqual(s.medianSlidingWindow_Naive([1,4,2,3], 4), [2.5])

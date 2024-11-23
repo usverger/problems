@@ -21,8 +21,17 @@ class Numbers(unittest.TestCase):
         r = s.isPalindrome(121)
         self.assertEqual(r, True)
 
+        r = s.isPalindrome(12433421)
+        self.assertEqual(r, True)
+
+        r = s.isPalindrome(1243421)
+        self.assertEqual(r, True)
+
         r = s.isPalindrome(10)
         self.assertEqual(r, False)
+
+        r = s.isPalindrome(12341)
+        self.assertEqual(r, False)        
 
 
  

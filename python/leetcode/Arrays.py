@@ -65,12 +65,15 @@ class Solution:
         return sum(sorted(nums)[::2])
 
     def bubbleSort(self, nums: List[int]) -> List[int]:
+        def swap(i: int, j: int, nums: List[int]):
+            k = nums[j]
+            nums[j] = nums[i]
+            nums[i] = k
+
         for i in range(len(nums)):
             for j in range(len(nums) - i - 1):
                 if nums[j] > nums[j + 1]:
-                    temp = nums[j]
-                    nums[j] = nums[j + 1]
-                    nums[j + 1] = temp
+                    swap(j, j + 1, nums)
         return nums
     
     def checkIfExist(self, arr: List[int]) -> bool:
@@ -790,3 +793,43 @@ class Solution:
 
         # the peak is the one
         return i == j
+    
+    def medianSlidingWindow_Sorted(self, nums: List[int], k: int) -> List[float]:
+
+        def median(window: List[int]) -> float:
+            n = len(window)
+            if n % 2 == 0:
+                return (window[n // 2 - 1] + window[n // 2]) / 2
+            else:
+                return window[n // 2]
+
+        if not nums: return []
+        
+        result = []
+        window = sorted(nums[:k])
+        result.append(median(window))
+        
+        for i in range(k, len(nums)):
+            window.remove(nums[i - k])
+            bisect.insort(window, nums[i])
+            result.append(median(window))
+        
+        return result
+    
+    def medianSlidingWindow_Naive(self, nums: List[int], k: int) -> List[float]:
+
+        def median(window: List[int]) -> float:
+            n = len(window)
+            if n % 2 == 0:
+                return (window[n // 2 - 1] + window[n // 2]) / 2
+            else:
+                return window[n // 2]
+
+        if not nums: return []
+        
+        result = []    
+        for i in range(k, len(nums) + 1):
+            window = sorted(nums[i - k:i])
+            result.append(median(window))
+        
+        return result    
