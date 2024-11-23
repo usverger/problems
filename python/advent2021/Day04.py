@@ -120,7 +120,7 @@ class Solution:
                     s += board[i][j]
         return s
 
-    def part1(self) -> int:
+    def first_winning(self) -> int:
         marked = set()
         for number in self.numbers:
             marked.add(number)
@@ -131,7 +131,7 @@ class Solution:
         
         return 0
     
-    def part2(self) -> int:
+    def last_winning(self) -> int:
         marked = set()
         winning_boards = []
         winning_scores = []

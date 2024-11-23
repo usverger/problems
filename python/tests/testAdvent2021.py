@@ -95,7 +95,7 @@ class TestAdvent2021(unittest.TestCase):
         text = open(filename, 'r')
         lines = text.read().splitlines()
         s = advent2021.Day04.Solution(lines)
-        result = s.part1()
+        result = s.first_winning()
         self.assertEqual(4512, result)
 
     def test_day04_puzzle(self):
@@ -103,7 +103,7 @@ class TestAdvent2021(unittest.TestCase):
         text = open(filename, 'r')
         lines = text.read().splitlines()
         s = advent2021.Day04.Solution(lines)
-        result = s.part1()
+        result = s.first_winning()
         self.assertEqual(21607, result)
 
     def test_day04_part2(self):
@@ -111,7 +111,7 @@ class TestAdvent2021(unittest.TestCase):
         text = open(filename, 'r')
         lines = text.read().splitlines()
         s = advent2021.Day04.Solution(lines)
-        result = s.part2()
+        result = s.last_winning()
         self.assertEqual(1924, result)
 
     def test_day04_part2_puzzle(self):
@@ -119,5 +119,5 @@ class TestAdvent2021(unittest.TestCase):
         text = open(filename, 'r')
         lines = text.read().splitlines()
         s = advent2021.Day04.Solution(lines)
-        result = s.part2()
+        result = s.last_winning()
         self.assertEqual(19012, result)
