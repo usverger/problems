@@ -86,16 +86,16 @@ class Solution:
         return len(fishes)
     
     def solve_part2(self, days: int) -> int:
-        fish_timers = [0] * 9 # every element is count of fishes with that timer
+        counters = [0] * 9 # every element is count of fishes with that timer
         for timer in self.initial:
-            fish_timers[timer] += 1
+            counters[timer] += 1
 
         for _ in range(days):
-            new_fish = fish_timers[0] # first element is the count of fishes with timer 0
-            fish_timers = fish_timers[1:] + [new_fish] # remove the first element and then append the fish count as timer 8
-            fish_timers[6] += new_fish # the fishes with timer 0 become counter 6
+            new_fish = counters[0] # first element is the count of fishes with timer 0
+            counters = counters[1:] + [new_fish] # remove the first element and then append the same value as timer 8
+            counters[6] += new_fish # the fishes with timer 0 become counter 6
 
-        return sum(fish_timers)
+        return sum(counters)
 
         
     
