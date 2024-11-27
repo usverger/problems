@@ -115,27 +115,22 @@ class Solution:
 
         for vent in self.vents:
             start, end = vent
-            minx = min(start[0], end[0])
-            miny = min(start[1], end[1])
-            maxx = max(start[0], end[0])
-            maxy = max(start[1], end[1])            
-            if start[0] == end[0]:
-                for y in range(miny, maxy + 1):
-                    grid[start[0]][y] += 1
-            elif start[1] == end[1]:
-                for x in range(minx, maxx + 1):
-                    grid[x][start[1]] += 1
+         
+            if start[0] < end[0]: directionx = 1
+            elif start[0] > end[0]: directionx = -1
+            else: directionx = 0
 
-            else:
-                directionx = 1 if start[0] < end[0] else -1
-                directiony = 1 if start[1] < end[1] else -1
-                current = start
-                while current != end: # points are tuples, not lists
-                    x,y = current
-                    grid[x][y] += 1
-                    x += directionx
-                    y += directiony
-                    current = (x,y)
-                grid[end[0]][end[1]] += 1
+            if start[1] < end[1]: directiony = 1
+            elif start[1] > end[1]: directiony = -1
+            else: directiony = 0
+
+            current = start
+            while current != end: # points are tuples, not lists
+                x,y = current
+                grid[x][y] += 1
+                x += directionx
+                y += directiony
+                current = (x,y)
+            grid[end[0]][end[1]] += 1
 
         return sum([1 for row in grid for cell in row if cell >= 2])

@@ -153,3 +153,45 @@ class TestAdvent2021(unittest.TestCase):
         s = advent2021.Day05.Solution(lines)
         result = s.solve_part2()
         self.assertEqual(20121, result)
+
+    def test_day06(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2021/day06_sample.txt')
+        text = open(filename, 'r')
+        s = advent2021.Day06.Solution(text.read())
+        self.assertEqual(5, s.solve(0))
+        self.assertEqual(5, s.solve(1))
+        self.assertEqual(6, s.solve(2))
+        self.assertEqual(26, s.solve(18))
+        self.assertEqual(73, s.solve(29))
+        self.assertEqual(5934, s.solve(80))
+        self.assertEqual(6358, s.solve(81))
+        self.assertEqual(7087, s.solve(82))
+        # self.assertEqual(26984457539, s.solve(256))
+
+    def test_day06_puzzle(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2021/day06.txt')
+        text = open(filename, 'r')
+        s = advent2021.Day06.Solution(text.read())
+        self.assertEqual(362639, s.solve(80))
+
+    def test_day06_part2(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2021/day06_sample.txt')
+        text = open(filename, 'r')
+        s = advent2021.Day06.Solution(text.read())
+
+        self.assertEqual(5, s.solve_part2(0))
+        self.assertEqual(5, s.solve_part2(1))
+        self.assertEqual(6, s.solve_part2(2))
+        self.assertEqual(26, s.solve_part2(18))
+        self.assertEqual(73, s.solve_part2(29))
+        self.assertEqual(5934, s.solve_part2(80))
+        self.assertEqual(6358, s.solve_part2(81))
+        self.assertEqual(7087, s.solve_part2(82))
+        self.assertEqual(26984457539, s.solve_part2(256))
+
+    def test_day06_part2_puzzle(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2021/day06.txt')
+        text = open(filename, 'r')
+        s = advent2021.Day06.Solution(text.read())
+        self.assertEqual(362639, s.solve_part2(80))
+        self.assertEqual(1639854996917, s.solve_part2(256))        
