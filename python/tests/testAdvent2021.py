@@ -219,3 +219,30 @@ class TestAdvent2021(unittest.TestCase):
         text = open(filename, 'r')
         s = advent2021.Day07.Solution(text.read())
         self.assertEqual(93699985, s.align_crabs_part2())
+
+    def test_day08(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2021/day08_sample.txt')
+        text = open(filename, 'r')
+        s = advent2021.Day08.Solution(text.read())
+        self.assertEqual(26, s.part1())
+
+    def test_day08_puzzle(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2021/day08.txt')
+        text = open(filename, 'r')
+        s = advent2021.Day08.Solution(text.read())
+        self.assertEqual(274, s.part1())
+
+    def test_day08_part2(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2021/day08_sample.txt')
+        text = open(filename, 'r')
+        s = advent2021.Day08.Solution(text.read())
+
+        map = {'a': 'g', 'b': 'f', 'c': 'e', 'd': 'c', 'e': 'd', 'f': 'a', 'g': 'b'}
+        self.assertEqual('abdefg', s.translate(map, 'facegb'))
+        self.assertEqual(61229, s.part2_bruteforce())
+
+    def test_day08_part2_puzzle(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2021/day08.txt')
+        text = open(filename, 'r')
+        s = advent2021.Day08.Solution(text.read())
+        self.assertEqual(1012089, s.part2_bruteforce())        
