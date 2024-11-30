@@ -119,11 +119,11 @@ class Solution:
             if c in '([{<':
                 stack.append(c)
             else:
-                if not stack: return self.score(c)
+                if not stack: return self.score_part1(c)
                 
                 o = stack.pop()
                 if not self.match(o, c):
-                    return self.score(c)
+                    return self.score_part1(c)
                 
         return 0
     
