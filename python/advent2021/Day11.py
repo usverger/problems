@@ -408,3 +408,4 @@ class Solution:
             self.step()
             step += 1
         return step
+    

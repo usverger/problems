@@ -3,6 +3,7 @@ from typing import List
 import python.advent2021 as advent2021
 import os
 from pathlib import Path
+from itertools import permutations, combinations, combinations_with_replacement
 
 class TestAdvent2021(unittest.TestCase):
     
@@ -317,5 +318,57 @@ class TestAdvent2021(unittest.TestCase):
         filename = os.path.join(os.path.dirname(__file__), 'testAdvent2021/day11.txt')
         text = open(filename, 'r')
         s = advent2021.Day11.Solution(text.read())
-        self.assertEqual(403, s.part2())        
+
+        self.assertEqual(403, s.part2())
+
+    def test_day12_part1(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2021/day12_sample.txt')
+        text = open(filename, 'r')
+        s = advent2021.Day12.Solution(text.read())
+        self.assertEqual(10, s.part1())
+
+    def test_day12_part1_2(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2021/day12_sample_2.txt')
+        text = open(filename, 'r')
+        s = advent2021.Day12.Solution(text.read())
+        self.assertEqual(19, s.part1())
+
+    def test_day12_part1_3(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2021/day12_sample_3.txt')
+        text = open(filename, 'r')
+        s = advent2021.Day12.Solution(text.read())
+        self.assertEqual(226, s.part1())
+
+    def test_day12_part1_puzzle(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2021/day12.txt')
+        text = open(filename, 'r')
+        s = advent2021.Day12.Solution(text.read())
+        self.assertEqual(3463, s.part1())
+
+    def test_day12_part2(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2021/day12_sample.txt')
+        text = open(filename, 'r')
+        s = advent2021.Day12.Solution(text.read())
+        self.assertEqual(36, s.part2())
+
+    def test_day12_part2_2(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2021/day12_sample_2.txt')
+        text = open(filename, 'r')
+        s = advent2021.Day12.Solution(text.read())
+        self.assertEqual(103, s.part2())
+
+    def test_day12_part2_3(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2021/day12_sample_3.txt')
+        text = open(filename, 'r')
+        s = advent2021.Day12.Solution(text.read())
+        self.assertEqual(3509, s.part2())
+
+    def test_day12_part2_puzzle(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2021/day12.txt')
+        text = open(filename, 'r')
+        s = advent2021.Day12.Solution(text.read())
+        self.assertEqual(91533, s.part2())
+
+
+
 
