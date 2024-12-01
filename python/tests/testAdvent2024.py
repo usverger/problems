@@ -3,7 +3,6 @@ from typing import List
 import python.advent2024 as advent2024
 import os
 from pathlib import Path
-from itertools import permutations, combinations, combinations_with_replacement
 
 class TestAdvent2024(unittest.TestCase):
     

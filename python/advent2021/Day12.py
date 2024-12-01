@@ -181,15 +181,17 @@ class Solution:
 
         while paths_q:
             p = paths_q.pop()
-            if p[-1] == 'end':
-                complete_paths.append(p)
-                continue
-
-            node = p[-1]
-            for n in self.graph[node]:
+            neighbors = self.graph[p[-1]]
+            for n in neighbors:
                 if n.isupper():
                     paths_q.append(p + [n])
-                elif n.islower() and not n in p:
+                    continue
+                if n == 'start':
+                    continue
+                if n == 'end':
+                    complete_paths.append(p + [n])
+                    continue
+                if not n in p:
                     paths_q.append(p + [n])
     
         # for p in complete_paths:
@@ -208,12 +210,9 @@ class Solution:
 
         while paths_q:
             p, used_twice = paths_q.pop()
-            if p[-1] == 'end':
-                complete_paths.append(p)
-                continue
 
-            node = p[-1]
-            for n in self.graph[node]:
+            neighbors = self.graph[p[-1]]
+            for n in neighbors:
                 
                 if n.isupper():
                     paths_q.append((p + [n], used_twice))
@@ -223,15 +222,14 @@ class Solution:
                     continue
 
                 if n == 'end':
-                    paths_q.append((p + [n], used_twice))
+                    complete_paths.append(p + [n])
                     continue
-
-                if n.islower():
-                    if not n in p:
-                        paths_q.append((p + [n], used_twice))
-                    else:
-                        if not used_twice:
-                            paths_q.append((p + [n], True))
+                
+                if not n in p:
+                    paths_q.append((p + [n], used_twice))
+                else:
+                    if not used_twice:
+                        paths_q.append((p + [n], True))
         
         # for p in complete_paths:
         #     print(p)
