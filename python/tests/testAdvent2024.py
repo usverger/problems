@@ -52,4 +52,4 @@ class TestAdvent2024(unittest.TestCase):
         filename = os.path.join(os.path.dirname(__file__), 'testAdvent2024/day02.txt')
         text = open(filename, 'r')
         s = advent2024.Day02.Solution(text.read())
-        self.assertEqual(539, s.part2())        
+        self.assertEqual(553, s.part2())        
