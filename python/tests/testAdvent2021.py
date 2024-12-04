@@ -369,6 +369,42 @@ class TestAdvent2021(unittest.TestCase):
         s = advent2021.Day12.Solution(text.read())
         self.assertEqual(91533, s.part2())
 
+    def test_day13_part1_1(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2021/day13_sample.txt')
+        text = open(filename, 'r')
+        s = advent2021.Day13.Solution(text.read())
+        s.print_coords()
+        print()
 
+        # s.fold_one('x', 9)
+        # s.print_coords()
+
+        # one fold
+        s.fold_one(s.commands[0][0], s.commands[0][1])
+        s.print_coords()
+        self.assertEqual(17, s.count_dots())
+
+        print()
+
+        # two folds
+        s.fold_one(s.commands[1][0], s.commands[1][1])
+        s.print_coords()
+        self.assertEqual(16, s.count_dots())        
+
+    def test_day13_part1_puzzle(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2021/day13.txt')
+        text = open(filename, 'r')
+        s = advent2021.Day13.Solution(text.read())
+
+        s.fold_one(s.commands[0][0], s.commands[0][1])
+        #s.print_coords()
+        self.assertEqual(720, s.count_dots())
+
+    def test_day13_part2_puzzle(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2021/day13.txt')
+        text = open(filename, 'r')
+        s = advent2021.Day13.Solution(text.read())
+
+        s.part2() # 'AHPRPAUZ'       
 
 
