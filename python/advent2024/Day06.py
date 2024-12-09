@@ -318,50 +318,6 @@ class Solution:
     def part1(self):
         self.move_until_exit_or_loop(self.map, self.guard)
         return sum([1 for line in self.map for c in line if c == 'X'])
-    
-    # def part2(self):
-    #     path = set()
-    #     guard = self.guard
-    #     map = self.map
-    #     possible_blocks = set()
-
-    #     while guard:
-    #         r,c = guard
-            
-    #         if map[r][c] == '^' and r-1 >= 0 and map[r-1][c] != '#':
-    #             # create a copy of the map and move untul exit or loop is identified
-    #             map_copy = [row[:] for row in map]
-    #             map_copy[r-1][c] = '#'
-    #             result = self.move_until_exit_or_loop(map_copy, (r,c))
-    #             if result:
-    #                 possible_blocks.add((r-1,c))
-
-    #         elif map[r][c] == '>' and c+1 < len(map[r]) and map[r][c + 1] != '#':
-    #             map_copy = [row[:] for row in map]
-    #             map_copy[r][c+1] = '#'
-    #             result = self.move_until_exit_or_loop(map_copy, (r,c))
-    #             if result:
-    #                 possible_blocks.add((r,c+1))
-
-    #         elif map[r][c] == 'v' and r+1 < len(map) and map[r+1][c] != '#':
-    #             map_copy = [row[:] for row in map]
-    #             map_copy[r+1][c] = '#'
-    #             result = self.move_until_exit_or_loop(map_copy, (r,c))
-    #             if result:
-    #                 possible_blocks.add((r+1,c))
-            
-    #         elif map[r][c] == '<' and c-1 >= 0 and map[r][c-1] != '#':
-    #             map_copy = [row[:] for row in map]
-    #             map_copy[r][c-1] = '#'
-    #             result = self.move_until_exit_or_loop(map_copy, (r,c))
-    #             if result:
-    #                 possible_blocks.add((r,c-1))            
-
-    #         self.print_map(map_copy)
-    #         print('')
-    #         guard = self.move_one(map, guard, path)
-
-    #     return len(possible_blocks)
 
     def part2(self):
         '''
@@ -377,13 +333,16 @@ class Solution:
         for i in range(len(self.map)):
             for j in range(len(self.map[i])):
 
+                # ignore the coordinates that can't be blocked or make no difference to block
                 if self.map[i][j] == '#': continue
                 if (i,j) == self.guard: continue
                 if first_run_map[i][j] == '.': continue
                 
+                # create a copy of the map, put the block
                 map_copy = [row[:] for row in self.map]
                 map_copy[i][j] = '#'
 
+                # simulate the guard again and check if we ended up in a loop or exited the map
                 result = self.move_until_exit_or_loop(map_copy, self.guard)
                 if result:
                     possible_blocks.add((i,j))
