@@ -368,22 +368,23 @@ class Solution:
         just try all possible positions to place and simply simulate again
         '''
 
-        path = set()
-        guard = self.guard
-        map = self.map
         possible_blocks = set()
 
-        for i in range(len(map)):
-            for j in range(len(map[i])):
+        # run once first to see what coordinates we never visited anyway
+        first_run_map = [row[:] for row in self.map]
+        self.move_until_exit_or_loop(first_run_map, self.guard)
 
-                if map[i][j] == '#': continue
+        for i in range(len(self.map)):
+            for j in range(len(self.map[i])):
+
+                if self.map[i][j] == '#': continue
                 if (i,j) == self.guard: continue
+                if first_run_map[i][j] == '.': continue
                 
-                map_copy = [row[:] for row in map]
+                map_copy = [row[:] for row in self.map]
                 map_copy[i][j] = '#'
 
-                guard = self.guard
-                result = self.move_until_exit_or_loop(map_copy, guard)
+                result = self.move_until_exit_or_loop(map_copy, self.guard)
                 if result:
                     possible_blocks.add((i,j))
 
