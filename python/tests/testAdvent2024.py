@@ -197,4 +197,28 @@ class TestAdvent2024(unittest.TestCase):
         filename = os.path.join(os.path.dirname(__file__), 'testAdvent2024/day08.txt')
         text = open(filename, 'r')
         s = advent2024.Day08.Solution(text.read())
-        self.assertEqual(1131, s.part2())        
+        self.assertEqual(1131, s.part2())
+
+    def test_day09_part1(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2024/day09_sample.txt')
+        text = open(filename, 'r')
+        s = advent2024.Day09.Solution(text.read())
+        self.assertEqual(1928, s.part1())
+
+    def test_day09_part1_puzzle(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2024/day09.txt')
+        text = open(filename, 'r')
+        s = advent2024.Day09.Solution(text.read())
+        self.assertEqual(6288707484810, s.part1())
+
+    def test_day09_part2(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2024/day09_sample.txt')
+        text = open(filename, 'r')
+        s = advent2024.Day09.Solution(text.read())
+        self.assertEqual(2858, s.part2())
+
+    def test_day09_part2_puzzle(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2024/day09.txt')
+        text = open(filename, 'r')
+        s = advent2024.Day09.Solution(text.read())
+        self.assertEqual(6311837662089, s.part2())    
