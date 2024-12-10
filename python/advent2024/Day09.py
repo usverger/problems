@@ -104,7 +104,7 @@ class Solution:
         r = len(disk) - 1
 
         while l < r:
-            while l < r and not disk[l] is None: l += 1 # find the next available space from the left
+            while l < r and disk[l] is not None: l += 1 # find the next available space from the left
             while l < r and disk[r] is None: r -= 1 # find the next file chunk from the right
             disk[l] = disk[r]
             disk[r] = None
@@ -119,7 +119,7 @@ class Solution:
         r = len(disk) - 1
         c = 0
         while l < r:
-            while l < r and not disk[l] is None: l += 1 # find the next available space from the left
+            while l < r and disk[l] is not None: l += 1 # find the next available space from the left
             while l < r and disk[r] is None: r -= 1 # find the next file chunk from the right
             rstart = r
             while l < rstart and disk[rstart] == disk[r]: rstart -= 1 # find the start of the file chunk
@@ -127,7 +127,7 @@ class Solution:
 
             chunk = self.locate_free_chunk_of_size(disk, l, rstart, r-rstart+1)
             # print('free chunk:', chunk, 'file to move:', (rstart, r, r-rstart+1))
-            if not chunk is None:
+            if chunk is not None:
                 # the free chunk is enough to move the file, then move the file and go to the next file
                 start, length = chunk
                 self.move_file(disk, start, rstart, r)
@@ -150,7 +150,7 @@ class Solution:
     def locate_free_chunk_of_size(self, disk: List[int], start: int, end: int, size: int) -> tuple:
         i = start
         while i < end:
-            if not disk[i] is None:
+            if disk[i] is not None:
                 i += 1
                 continue
 
@@ -166,7 +166,7 @@ class Solution:
     def locate_free_chunk(self, disk: List[int], start: int, end: int) -> tuple:
         i = start
         while i < end:
-            if not disk[i] is None:
+            if disk[i] is not None:
                 i += 1
                 continue
 
