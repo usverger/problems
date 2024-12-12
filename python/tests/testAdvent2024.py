@@ -294,3 +294,29 @@ class TestAdvent2024(unittest.TestCase):
         text = open(filename, 'r')
         s = advent2024.Day11.Solution(text.read())
         self.assertEqual(250783680217283, s.blink_all_stones_many(75))
+
+    def test_day12_part1(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2024/day12_sample.txt')
+        text = open(filename, 'r')
+        s = advent2024.Day12.Solution(text.read())
+        self.assertEqual({(0, 1), (0, 2), (0, 3), (0, 0)}, s.find_region(0, 0))        
+        self.assertEqual({(0, 1), (0, 2), (0, 3), (0, 0)}, s.find_region(0, 1))
+        self.assertEqual(140, s.part1())
+
+    def test_day12_part1_2(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2024/day12_sample_2.txt')
+        text = open(filename, 'r')
+        s = advent2024.Day12.Solution(text.read())
+        self.assertEqual(772, s.part1())
+
+    def test_day12_part1_3(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2024/day12_sample_3.txt')
+        text = open(filename, 'r')
+        s = advent2024.Day12.Solution(text.read())
+        self.assertEqual(1930, s.part1())
+
+    def test_day12_part1_puzzle(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2024/day12.txt')
+        text = open(filename, 'r')
+        s = advent2024.Day12.Solution(text.read())
+        self.assertEqual(1374934, s.part1())        
