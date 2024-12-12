@@ -206,7 +206,7 @@ class Solution:
         return len(self.locate_tops(map, trailhead))
     
     def part1(self):
-        return sum([self.score(self.map, trailhead) for trailhead in self.trailheads])
+        return sum([self.score1(self.map, trailhead) for trailhead in self.trailheads])
     
     def score2(self, map, trailhead):
         return len(self.locate_trails(map, trailhead))

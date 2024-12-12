@@ -257,4 +257,40 @@ class TestAdvent2024(unittest.TestCase):
         filename = os.path.join(os.path.dirname(__file__), 'testAdvent2024/day10.txt')
         text = open(filename, 'r')
         s = advent2024.Day10.Solution(text.read())
-        self.assertEqual(1255, s.part2())        
+        self.assertEqual(1255, s.part2())
+
+    def test_day11_part1(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2024/day11_sample.txt')
+        text = open(filename, 'r')
+        s = advent2024.Day11.Solution(text.read())
+        self.assertEqual(1, s.blink_stone_many('0', 1))
+        self.assertEqual(1, s.blink_stone_many('0', 2))
+        self.assertEqual(2, s.blink_stone_many('0', 3))
+        self.assertEqual(4, s.blink_stone_many('0', 4))
+        self.assertEqual(2377, s.blink_stone_many('0', 20))
+        self.assertEqual(1258125, s.blink_stone_many('0', 35))
+        # self.assertEqual(10174278, len(s.blink_stone('0', 40)))
+        # self.assertEqual(10174278, len(s.blink_stone('0', 50)))
+        self.assertEqual(4, s.blink_stone_many('4022724', 5)) # ['333539', '121344', '382521', '880576']
+        self.assertEqual(8, s.blink_stone_many('4022724', 6)) # ['333', '539', '121', '344', '382', '521', '880', '576']
+        
+        self.assertEqual(7, s.blink_all_stones_many(1))
+
+    def test_day11_part1_2(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2024/day11_sample_2.txt')
+        text = open(filename, 'r')
+        s = advent2024.Day11.Solution(text.read())
+        self.assertEqual(22, s.blink_all_stones_many(6))
+        self.assertEqual(55312, s.blink_all_stones_many(25))
+
+    def test_day11_part1_puzzle(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2024/day11.txt')
+        text = open(filename, 'r')
+        s = advent2024.Day11.Solution(text.read())
+        self.assertEqual(211306, s.blink_all_stones_many(25))
+
+    def test_day11_part2_puzzle(self):
+        filename = os.path.join(os.path.dirname(__file__), 'testAdvent2024/day11.txt')
+        text = open(filename, 'r')
+        s = advent2024.Day11.Solution(text.read())
+        self.assertEqual(250783680217283, s.blink_all_stones_many(75))
